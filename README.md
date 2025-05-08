@@ -1,9 +1,21 @@
-# DECOIT checkmk Plugins
+# mk_puppet Plugin
 
-In this repository you will find [checkmk](https://checkmk.com/) plugins by DECOIT GmbH. The Plugins are free to use but without support or warranty. 
+This repository contains the 2.0 version by DECOIT based on the mk_puppet plugin by [Alan Good](https://github.com/allangood/check_mk/tree/master/plugins/puppet)
 
-If you would like support for specific plugins or custom plugin development, please do not hesitate to contact us <info@decoit.de>
+Checks for puppet:
+ - Puppet Agent Events Failure
+ - Puppet Agent Last Run
+ - Puppet Agent Resource Changed
+ - Puppet Agent Resource Failed
+ - Puppet Agent Resource Failed to Restart
+ - Puppet Agent Resources Out Of Sync
+ - Puppet Agent Resources Restarted
+ - Puppet Agent Resources Scheduled
+ - Puppet Agent Resources Skipped
+ - Puppet Agent Resources Total
 
-## Version Subfolders
+It contains the [checkmk](https://checkmk.com/) Enterprise Edition feature for baking agents and wato GUIs for parameter definition.
 
-Each Plugin contains subfolders for the specific [checkmk](https://checkmk.com/) version. 
+### Example:
+
+![Puppet](https://github.com/decoit/check_mk/blob/main/site_media/mk_puppet.jpg?raw=true)
