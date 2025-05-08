@@ -46,15 +46,24 @@ events_failure: 0
 events_success: 3
 events_total: 3
 '''
-
+from typing import Dict, List, Tuple
+import time
 from cmk.gui.i18n import _
 
-from typing import Dict, List, Tuple
 
-import time
+# from cmk.base.plugins.agent_based.agent_based_api.v1 import (
+#     register,
+#     Result,
+#     Service,
+#     State,
+#     check_levels,
+#     render,
+# )
 
-from cmk.base.plugins.agent_based.agent_based_api.v1 import (
-    register,
+
+from cmk.agent_based.v2 import (
+    AgentSection,
+    CheckPlugin,
     Result,
     Service,
     State,
@@ -71,8 +80,8 @@ def puppet_agent_parse(string_table: List[List[str]]) -> Dict[str, str]:
     return section
 
 
-register.agent_section(
-    name='puppet_agent',
+agent_section_puppet_agent = AgentSection(
+    name="puppet_agent",
     parse_function=puppet_agent_parse,
 )
 
@@ -81,11 +90,12 @@ def discovery_puppet_agent_events(section: Dict[str, str]):
     if "events_failure" in section:
         yield Service()
 
+
 def check_puppet_agent_events(params: Dict[str, Tuple[int, int]], section: Dict[str, str]):
     if "events_failure" not in section:
         yield Result(state=State.UNKNOWN, summary=_("Item not found in agent output"))
         return
-    
+
     yield from check_levels(
         int(section.get("events_failure", "0")),
         levels_upper=params["levels"],
@@ -96,9 +106,9 @@ def check_puppet_agent_events(params: Dict[str, Tuple[int, int]], section: Dict[
     )
 
 
-register.check_plugin(
-    name='puppet_agent_events',
-    service_name=_('Puppet Agent Events Failure'),
+check_plgin_puppet_agent_events = CheckPlugin(
+    name="puppet_agent_events",
+    service_name=_("Puppet Agent Events"),
     discovery_function=discovery_puppet_agent_events,
     check_function=check_puppet_agent_events,
     sections=["puppet_agent"],
@@ -111,11 +121,12 @@ def discovery_puppet_agent_lastrun(section: Dict[str, str]):
     if "last_run" in section:
         yield Service()
 
+
 def check_puppet_agent_lastrun(params: Dict[str, Tuple[int, int]], section: Dict[str, str]):
     if "last_run" not in section:
         yield Result(state=State.UNKNOWN, summary=_("Item not found in agent output"))
         return
-    
+
     now = time.time()
     diff_seconds: float = now - int(section.get("last_run", "0"))
     yield from check_levels(
@@ -128,9 +139,9 @@ def check_puppet_agent_lastrun(params: Dict[str, Tuple[int, int]], section: Dict
     )
 
 
-register.check_plugin(
-    name='puppet_agent_lastrun',
-    service_name=_('Puppet Agent Last Run'),
+check_plugin_puppet_agent_lastrun = CheckPlugin(
+    name="puppet_agent_lastrun",
+    service_name=_("Puppet Agent Last Run"),
     discovery_function=discovery_puppet_agent_lastrun,
     check_function=check_puppet_agent_lastrun,
     sections=["puppet_agent"],
@@ -138,9 +149,8 @@ register.check_plugin(
     check_default_parameters={"levels": (86400, 604800)},
 )
 
-
 # Has to have uniqe keys and values!
-_resources_name_table: Dict[str,str] = {
+_resources_name_table: Dict[str, str] = {
        'resources_changed': _('Resource Changed'),
        'resources_failed': _('Resource Failed'),
        'resources_failed_to_restart': _('Resource Failed to Restart'),
@@ -151,24 +161,26 @@ _resources_name_table: Dict[str,str] = {
        'resources_total': _('Resources Total'),
 }
 
-def discovery_puppet_agent_resources(section: Dict[str,str]):
-    for key,value in _resources_name_table.items():
+
+def discovery_puppet_agent_resources(section: Dict[str, str]):
+    for key, value in _resources_name_table.items():
         if key in section:
-            yield Service(item = value)
+            yield Service(item=value)
+
 
 def check_puppet_agent_resources(item: str, section: Dict[str, str]):
     item_key = list(_resources_name_table.keys())[list(_resources_name_table.values()).index(item)]
     if item_key not in section:
         yield Result(state=State.UNKNOWN, summary=_("Item not found in agent output"))
         return
-    
+
     yield Result(state=State.OK, summary=f"{item}: {section.get(item_key, '0')}")
 
-register.check_plugin(
-    name='puppet_agent_resources',
-    service_name=_('Puppet Agent %s'),
+
+check_plugin_puppet_agent_resources = CheckPlugin(
+    name="puppet_agent_resources",
+    service_name=_("Puppet Agent Resources"),
     discovery_function=discovery_puppet_agent_resources,
     check_function=check_puppet_agent_resources,
     sections=["puppet_agent"],
 )
-
