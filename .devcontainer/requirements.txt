@@ -1,5 +1,6 @@
+urllib3<2
 flake8
 pytest
 pytest-cov
 requests-mock
-autopep8
+black
