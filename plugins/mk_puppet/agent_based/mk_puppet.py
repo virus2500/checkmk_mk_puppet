@@ -46,24 +46,17 @@ events_failure: 0
 events_success: 3
 events_total: 3
 '''
-from typing import Dict, List, Tuple
+
 import time
+from typing import Dict, List, Tuple
+
 from cmk.gui.i18n import _
 
 
-# from cmk.base.plugins.agent_based.agent_based_api.v1 import (
-#     register,
-#     Result,
-#     Service,
-#     State,
-#     check_levels,
-#     render,
-# )
-
-
 from cmk.agent_based.v2 import (
-    AgentSection,
     CheckPlugin,
+    # CheckResult,
+    AgentSection,
     Result,
     Service,
     State,
@@ -73,6 +66,7 @@ from cmk.agent_based.v2 import (
 
 
 def puppet_agent_parse(string_table: List[List[str]]) -> Dict[str, str]:
+    """Parse puppet agent output from a list of string lists into a dict."""
     section: Dict[str, str] = dict()
     for items in string_table:
         # get rid of the colon
@@ -81,50 +75,66 @@ def puppet_agent_parse(string_table: List[List[str]]) -> Dict[str, str]:
 
 
 agent_section_puppet_agent = AgentSection(
-    name="puppet_agent",
+    name='puppet_agent',
     parse_function=puppet_agent_parse,
 )
 
 
 def discovery_puppet_agent_events(section: Dict[str, str]):
+    """Discover puppet agent events by checking for events_failure."""
     if "events_failure" in section:
         yield Service()
 
 
-def check_puppet_agent_events(params: Dict[str, Tuple[int, int]], section: Dict[str, str]):
+def check_puppet_agent_events(params: Dict[str, Tuple[int, int]],
+                              section: Dict[str, str]):
+    """Check puppet agent events using defined levels."""
+    levels = params["levels"]
     if "events_failure" not in section:
-        yield Result(state=State.UNKNOWN, summary=_("Item not found in agent output"))
+        yield Result(
+            state=State.UNKNOWN,
+            summary=_("Item not found in agent output")
+        )
         return
 
     yield from check_levels(
-        int(section.get("events_failure", "0")),
-        levels_upper=params["levels"],
+        float(section.get("events_failure", "0")),
+        levels_upper=levels,
         metric_name="puppet_agent_failure",
-        boundaries=params["levels"],
+        # TODO: add boundaries
+        boundaries=(3.0, 5.0),
         render_func=lambda x: str(int(x)),
         label=_("Events Failure"),
     )
 
 
-check_plgin_puppet_agent_events = CheckPlugin(
-    name="puppet_agent_events",
-    service_name=_("Puppet Agent Events"),
+check_plugin_puppet_agent_events = CheckPlugin(
+    name='puppet_agent_events',
+    service_name=_('Puppet Agent Events Failure'),
     discovery_function=discovery_puppet_agent_events,
     check_function=check_puppet_agent_events,
     sections=["puppet_agent"],
-    check_ruleset_name="puppet_agent_events",
-    check_default_parameters={"levels": (2, 5)},
+    check_default_parameters={
+        "levels": ("fixed", (3, 5))
+    },
+    # check_ruleset_name="puppet_agent_events",
 )
 
 
 def discovery_puppet_agent_lastrun(section: Dict[str, str]):
+    """Discover the service for the puppet agent last run."""
     if "last_run" in section:
         yield Service()
 
 
-def check_puppet_agent_lastrun(params: Dict[str, Tuple[int, int]], section: Dict[str, str]):
+def check_puppet_agent_lastrun(params: Dict[str, Tuple[int, int]],
+                               section: Dict[str, str]):
+    """Check puppet agent last run time."""
     if "last_run" not in section:
-        yield Result(state=State.UNKNOWN, summary=_("Item not found in agent output"))
+        yield Result(
+            state=State.UNKNOWN,
+            summary=_("Item not found in agent output")
+        )
         return
 
     now = time.time()
@@ -133,21 +143,23 @@ def check_puppet_agent_lastrun(params: Dict[str, Tuple[int, int]], section: Dict
         diff_seconds,
         levels_upper=params["levels"],
         metric_name="puppet_agent_lastrun",
-        boundaries=params["levels"],
+        # TODO: add boundaries
+        boundaries=(3.0, 5.0),
         render_func=lambda seconds: f"{render.timespan(seconds)} ago",
         label=_("Last Execution"),
     )
 
 
 check_plugin_puppet_agent_lastrun = CheckPlugin(
-    name="puppet_agent_lastrun",
-    service_name=_("Puppet Agent Last Run"),
+    name='puppet_agent_lastrun',
+    service_name=_('Puppet Agent Last Run'),
     discovery_function=discovery_puppet_agent_lastrun,
     check_function=check_puppet_agent_lastrun,
     sections=["puppet_agent"],
-    check_ruleset_name="puppet_agent_lastrun",
-    check_default_parameters={"levels": (86400, 604800)},
+    # check_ruleset_name="puppet_agent_lastrun",
+    check_default_parameters={"levels": ("fixed", (86400, 604800))},
 )
+
 
 # Has to have uniqe keys and values!
 _resources_name_table: Dict[str, str] = {
@@ -163,23 +175,33 @@ _resources_name_table: Dict[str, str] = {
 
 
 def discovery_puppet_agent_resources(section: Dict[str, str]):
+    """Discover puppet agent resources from the agent output."""
     for key, value in _resources_name_table.items():
         if key in section:
             yield Service(item=value)
 
 
 def check_puppet_agent_resources(item: str, section: Dict[str, str]):
-    item_key = list(_resources_name_table.keys())[list(_resources_name_table.values()).index(item)]
+    """Check puppet agent resources."""
+    keys = list(_resources_name_table.keys())
+    values = list(_resources_name_table.values())
+    item_key = keys[values.index(item)]
     if item_key not in section:
-        yield Result(state=State.UNKNOWN, summary=_("Item not found in agent output"))
+        yield Result(
+            state=State.UNKNOWN,
+            summary=_("Item not found in agent output")
+        )
         return
 
-    yield Result(state=State.OK, summary=f"{item}: {section.get(item_key, '0')}")
+    yield Result(
+        state=State.OK,
+        summary=f"{item}: {section.get(item_key, '0')}"
+    )
 
 
 check_plugin_puppet_agent_resources = CheckPlugin(
-    name="puppet_agent_resources",
-    service_name=_("Puppet Agent Resources"),
+    name='puppet_agent_resources',
+    service_name=_('Puppet Agent %s'),
     discovery_function=discovery_puppet_agent_resources,
     check_function=check_puppet_agent_resources,
     sections=["puppet_agent"],

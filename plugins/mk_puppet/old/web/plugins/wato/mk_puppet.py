@@ -35,11 +35,9 @@ from cmk.gui.valuespec import (
     Integer,
 )
 
-from cmk.gui.watolib.rulespecs import (
+from cmk.gui.plugins.wato import (
     CheckParameterRulespecWithoutItem,
     rulespec_registry,
-)
-from cmk.gui.wato._rulespec_groups import (
     RulespecGroupCheckParametersApplications,
 )
 
