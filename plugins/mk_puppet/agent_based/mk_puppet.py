@@ -98,13 +98,13 @@ def check_puppet_agent_events(params: Dict[str, Tuple[int, int]],
         return
 
     yield from check_levels(
-        float(section.get("events_failure", "0")),
+        int(section.get("events_failure", "0")),
         levels_upper=levels,
         metric_name="puppet_agent_failure",
         # TODO: add boundaries
-        boundaries=(3.0, 5.0),
-        render_func=lambda x: str(int(x)),
-        label=_("Events Failure"),
+        boundaries=(3, 5),
+        render_func=str,
+        label=_("Puppet Agent Events Failure"),
     )
 
 
@@ -117,7 +117,7 @@ check_plugin_puppet_agent_events = CheckPlugin(
     check_default_parameters={
         "levels": ("fixed", (3, 5))
     },
-    # check_ruleset_name="puppet_agent_events",
+    check_ruleset_name="puppet_agent_events",
 )
 
 
@@ -143,8 +143,7 @@ def check_puppet_agent_lastrun(params: Dict[str, Tuple[int, int]],
         diff_seconds,
         levels_upper=params["levels"],
         metric_name="puppet_agent_lastrun",
-        # TODO: add boundaries
-        boundaries=(3.0, 5.0),
+        boundaries=(0, 900000),  # e.g., up to 10 days
         render_func=lambda seconds: f"{render.timespan(seconds)} ago",
         label=_("Last Execution"),
     )
@@ -158,6 +157,7 @@ check_plugin_puppet_agent_lastrun = CheckPlugin(
     sections=["puppet_agent"],
     # check_ruleset_name="puppet_agent_lastrun",
     check_default_parameters={"levels": ("fixed", (86400, 604800))},
+    check_ruleset_name="puppet_agent_lastrun",
 )
 
 
