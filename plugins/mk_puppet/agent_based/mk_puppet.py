@@ -101,7 +101,6 @@ def check_puppet_agent_events(params: Dict[str, Tuple[int, int]],
         int(section.get("events_failure", "0")),
         levels_upper=levels,
         metric_name="puppet_agent_failure",
-        # TODO: add boundaries
         boundaries=(3, 5),
         render_func=str,
         label=_("Puppet Agent Events Failure"),

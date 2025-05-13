@@ -70,7 +70,6 @@ def _parameter_form_puppet_events():
 
 
 rule_spec_puppet_agent_events = CheckParameters(
-    # TODO: Rules are not matching.... the just replace the default values
     name="puppet_agent_events",
     title=Title("Puppet Agent Events Failure"),
     topic=Topic.APPLICATIONS,
@@ -98,7 +97,6 @@ def _parameter_form_puppet_lastrun():
 
 
 rule_spec_puppet_agent_lastrun = CheckParameters(
-    # TODO: Rules are not matching.... the just replace the default values
     name="puppet_agent_lastrun",
     title=Title("Puppet Agent Last Run"),
     topic=Topic.APPLICATIONS,
