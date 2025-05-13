@@ -37,7 +37,7 @@ events failure and last run metrics.
 from cmk.rulesets.v1.rule_specs import (
     CheckParameters,
     Topic,
-    HostAndItemCondition,
+    HostCondition,
 )
 
 from cmk.rulesets.v1 import Title, Help
@@ -68,12 +68,13 @@ def _parameter_form_puppet_events():
         }
     )
 
-# TODO: Rules are not matching.... the just replace the default values
+
 rule_spec_puppet_agent_events = CheckParameters(
+    # TODO: Rules are not matching.... the just replace the default values
     name="puppet_agent_events",
     title=Title("Puppet Agent Events Failure"),
     topic=Topic.APPLICATIONS,
-    condition=HostAndItemCondition(item_title=None),
+    condition=HostCondition(),
     parameter_form=_parameter_form_puppet_events,
 )
 
@@ -95,11 +96,12 @@ def _parameter_form_puppet_lastrun():
         }
     )
 
-# TODO: Rules are not matching.... the just replace the default values
+
 rule_spec_puppet_agent_lastrun = CheckParameters(
+    # TODO: Rules are not matching.... the just replace the default values
     name="puppet_agent_lastrun",
     title=Title("Puppet Agent Last Run"),
     topic=Topic.APPLICATIONS,
-    condition=HostAndItemCondition(item_title=None),
+    condition=HostCondition(),
     parameter_form=_parameter_form_puppet_lastrun,
 )

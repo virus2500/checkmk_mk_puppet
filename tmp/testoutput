@@ -1,0 +1,1336 @@
+<<<check_mk>>>
+Version: 2.3.0p31
+AgentOS: linux
+Hostname: dev
+AgentDirectory: /etc/check_mk
+DataDirectory: /var/lib/check_mk_agent
+SpoolDirectory: /var/lib/check_mk_agent/spool
+PluginsDirectory: /usr/lib/check_mk_agent/plugins
+LocalDirectory: /usr/lib/check_mk_agent/local
+OSType: linux
+OSName: Debian GNU/Linux
+OSVersion: 12
+OSPlatform: debian
+FailedPythonReason: 
+SSHClient: 
+<<<cmk_agent_ctl_status:sep(0)>>>
+{"version":"2.3.0p31","agent_socket_operational":true,"ip_allowlist":[],"allow_legacy_pull":false,"connections":[{"site_id":"cmk.home.lan/main","receiver_port":8000,"uuid":"000454ec-f8a1-48c9-bccc-8e4ae6f34026","local":{"connection_mode":"pull-agent","cert_info":{"issuer":"Site 'main' agent signing CA","from":"Sat, 25 May 2024 19:14:16 +0000","to":"Fri, 25 May 2029 19:14:16 +0000"}},"remote":"remote_query_disabled"}]}
+<<<checkmk_agent_plugins_lnx:sep(0)>>>
+pluginsdir /usr/lib/check_mk_agent/plugins
+localdir /usr/lib/check_mk_agent/local
+/usr/lib/check_mk_agent/plugins/mk_inventory:CMK_VERSION="2.3.0p31"
+/usr/lib/check_mk_agent/plugins/mk_logwatch.py:__version__ = "2.3.0p31"
+/usr/lib/check_mk_agent/plugins/mk_logwatch_2.py:__version__ = "2.3.0p31"
+/usr/lib/check_mk_agent/plugins/mk_puppet:CMK_VERSION="unversioned"
+/usr/lib/check_mk_agent/plugins/puppet_label:CMK_VERSION="unversioned"
+/usr/lib/check_mk_agent/plugins/smart:CMK_VERSION="2.3.0p31"
+/usr/lib/check_mk_agent/plugins/18000/cmk-update-agent:CMK_VERSION="unversioned"
+/usr/lib/check_mk_agent/plugins/900/mk_apt:CMK_VERSION="2.3.0p31"
+<<<labels:sep(0)>>>
+{"cmk/device_type":"container"}
+<<<df_v2>>>
+/dev/mapper/pve-vm--144--disk--0 ext4     14343256 10103944   3551848      74% /
+none                             tmpfs         492        4       488       1% /dev
+tmpfs                            tmpfs    32848372        0  32848372       0% /dev/shm
+tmpfs                            tmpfs    13139352      132  13139220       1% /run
+tmpfs                            tmpfs        5120        0      5120       0% /run/lock
+tmpfs                            tmpfs     6569672        0   6569672       0% /run/user/1026
+<<<df_v2>>>
+[df_inodes_start]
+/dev/mapper/pve-vm--144--disk--0 ext4   917504 354685  562819   39% /
+none                             tmpfs 8212093     26 8212067    1% /dev
+tmpfs                            tmpfs 8212093      1 8212092    1% /dev/shm
+tmpfs                            tmpfs  819200    172  819028    1% /run
+tmpfs                            tmpfs 8212093      3 8212090    1% /run/lock
+tmpfs                            tmpfs 1642418     20 1642398    1% /run/user/1026
+[df_inodes_end]
+[df_lsblk_start]
+NAME           UUID
+/dev/sr0       
+/dev/nvme0n1   
+/dev/nvme0n1p1 
+/dev/nvme0n1p2 
+/dev/nvme0n1p3 
+[df_lsblk_end]
+<<<systemd_units>>>
+[list-unit-files]
+apache-htcacheclean.service disabled enabled
+apache-htcacheclean@.service disabled enabled
+apache2.service enabled enabled
+apache2@.service disabled enabled
+apparmor.service enabled enabled
+apt-daily-upgrade.service static -
+apt-daily.service static -
+autovt@.service alias -
+check-mk-agent-async.service enabled enabled
+check-mk-agent@.service static -
+cmk-agent-ctl-daemon.service enabled enabled
+cmk-update-agent.service static -
+cni-dhcp.service masked enabled
+console-getty.service enabled-runtime disabled
+container-getty@.service indirect enabled
+containerd.service enabled enabled
+cron.service enabled enabled
+cryptdisks-early.service masked enabled
+cryptdisks.service masked enabled
+dbus-org.freedesktop.hostname1.service alias -
+dbus-org.freedesktop.locale1.service alias -
+dbus-org.freedesktop.login1.service alias -
+dbus-org.freedesktop.timedate1.service alias -
+dbus-org.freedesktop.timesync1.service alias -
+dbus.service static -
+debug-shell.service disabled disabled
+dpkg-db-backup.service static -
+e2scrub@.service static -
+e2scrub_all.service static -
+e2scrub_fail@.service static -
+e2scrub_reap.service enabled enabled
+emergency.service static -
+fstrim.service static -
+getty-static.service static -
+getty@.service disabled disabled
+hwclock.service masked enabled
+ifup@.service static -
+ifupdown-pre.service static -
+ifupdown-wait-online.service disabled enabled
+initrd-cleanup.service static -
+initrd-parse-etc.service static -
+initrd-switch-root.service static -
+initrd-udevadm-cleanup-db.service static -
+kmod-static-nodes.service static -
+kmod.service alias -
+logrotate.service static -
+man-db.service static -
+modprobe@.service static -
+networking.service enabled enabled
+nscd.service enabled enabled
+nslcd.service generated -
+packagekit-offline-update.service static -
+packagekit.service static -
+pam_namespace.service static -
+polkit.service static -
+postfix-resolvconf.service disabled enabled
+postfix.service enabled enabled
+postfix@.service indirect enabled
+procps.service alias -
+puppet.service enabled enabled
+pxp-agent.service disabled enabled
+quotaon.service static -
+rc-local.service static -
+rc.service masked enabled
+rcS.service masked enabled
+rescue.service static -
+rsyslog.service enabled enabled
+screen-cleanup.service masked enabled
+serial-getty@.service disabled enabled
+ssh.service enabled enabled
+sshd.service alias -
+sudo-ldap.service generated -
+sudo.service masked enabled
+syslog.service alias -
+system-update-cleanup.service static -
+systemd-ask-password-console.service static -
+systemd-ask-password-wall.service static -
+systemd-backlight@.service static -
+systemd-binfmt.service static -
+systemd-boot-check-no-failures.service disabled disabled
+systemd-exit.service static -
+systemd-firstboot.service static -
+systemd-fsck-root.service static -
+systemd-fsck@.service static -
+systemd-fsckd.service static -
+systemd-halt.service static -
+systemd-hibernate-resume@.service static -
+systemd-hibernate.service static -
+systemd-hostnamed.service static -
+systemd-hybrid-sleep.service static -
+systemd-initctl.service static -
+systemd-journal-flush.service static -
+systemd-journald.service static -
+systemd-journald@.service static -
+systemd-kexec.service static -
+systemd-localed.service static -
+systemd-logind.service static -
+systemd-machine-id-commit.service static -
+systemd-modules-load.service static -
+systemd-network-generator.service disabled enabled
+systemd-networkd-wait-online.service disabled disabled
+systemd-networkd-wait-online@.service disabled enabled
+systemd-networkd.service disabled disabled
+systemd-pcrphase-initrd.service static -
+systemd-pcrphase-sysinit.service static -
+systemd-pcrphase.service static -
+systemd-poweroff.service static -
+systemd-pstore.service enabled enabled
+systemd-quotacheck.service static -
+systemd-random-seed.service static -
+systemd-reboot.service static -
+systemd-remount-fs.service enabled-runtime enabled
+systemd-repart.service static -
+systemd-rfkill.service static -
+systemd-suspend-then-hibernate.service static -
+systemd-suspend.service static -
+systemd-sysctl.service static -
+systemd-sysext.service disabled enabled
+systemd-sysusers.service static -
+systemd-time-wait-sync.service disabled disabled
+systemd-timedated.service static -
+systemd-timesyncd.service enabled enabled
+systemd-tmpfiles-clean.service static -
+systemd-tmpfiles-setup-dev.service static -
+systemd-tmpfiles-setup.service static -
+systemd-udev-settle.service static -
+systemd-udev-trigger.service static -
+systemd-udevd.service static -
+systemd-update-utmp-runlevel.service static -
+systemd-update-utmp.service static -
+systemd-user-sessions.service static -
+systemd-volatile-root.service static -
+udev.service alias -
+unattended-upgrades.service enabled enabled
+urandom.service generated -
+user-runtime-dir@.service static -
+user@.service static -
+vnstat.service enabled enabled
+vnstatd.service alias -
+x11-common.service masked enabled
+check-mk-agent.socket enabled enabled
+cni-dhcp.socket masked enabled
+dbus.socket static -
+ssh.socket disabled enabled
+syslog.socket static -
+systemd-fsckd.socket static -
+systemd-initctl.socket static -
+systemd-journald-audit.socket static -
+systemd-journald-dev-log.socket static -
+systemd-journald-varlink@.socket static -
+systemd-journald.socket static -
+systemd-journald@.socket static -
+systemd-networkd.socket disabled enabled
+systemd-rfkill.socket static -
+systemd-udevd-control.socket static -
+systemd-udevd-kernel.socket static -
+[status]
+● apache2.service - The Apache HTTP Server
+ Loaded: loaded (/lib/systemd/system/apache2.service; enabled; preset: enabled)
+ Active: active (running) since Mon 2025-04-28 13:29:10 CEST; 1 week 4 days ago
+ Docs: https://httpd.apache.org/docs/2.4/
+ Main PID: 273 (apache2)
+ Tasks: 106 (limit: 76908)
+ Memory: 21.2M
+ CPU: 24.301s
+ CGroup: /system.slice/apache2.service
+ ├─ 273 /usr/sbin/apache2 -k start
+ ├─1095397 /usr/sbin/apache2 -k start
+ ├─1095398 /usr/sbin/apache2 -k start
+ └─1095399 /usr/sbin/apache2 -k start
+
+○ apparmor.service - Load AppArmor profiles
+ Loaded: loaded (/lib/systemd/system/apparmor.service; enabled; preset: enabled)
+ Active: inactive (dead)
+ Assert: start assertion failed at Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Docs: man:apparmor(7)
+ https://gitlab.com/apparmor/apparmor/wikis/home/
+
+○ apt-daily-upgrade.service - Daily apt upgrade and clean activities
+ Loaded: loaded (/lib/systemd/system/apt-daily-upgrade.service; static)
+ Drop-In: /etc/systemd/system/apt-daily-upgrade.service.d
+ └─apt-daily-upgrade.conf
+ Active: inactive (dead) since Fri 2025-05-09 06:03:19 CEST; 12h ago
+TriggeredBy: ● apt-daily-upgrade.timer
+ Docs: man:apt(8)
+ Process: 1121416 ExecStart=/usr/lib/apt/apt.systemd.daily install (code=exited, status=0/SUCCESS)
+ Process: 1121519 ExecStart=/usr/lib/apt/apt.systemd.daily install (code=exited, status=0/SUCCESS)
+ Main PID: 1121519 (code=exited, status=0/SUCCESS)
+ CPU: 1.400s
+
+○ apt-daily.service - Daily apt download activities
+ Loaded: loaded (/lib/systemd/system/apt-daily.service; static)
+ Drop-In: /etc/systemd/system/apt-daily.service.d
+ └─apt-daily.conf
+ Active: inactive (dead) since Fri 2025-05-09 17:30:46 CEST; 36min ago
+TriggeredBy: ● apt-daily.timer
+ Docs: man:apt(8)
+ Process: 1172796 ExecStart=/usr/lib/apt/apt.systemd.daily update (code=exited, status=0/SUCCESS)
+ Process: 1173351 ExecStart=/usr/lib/apt/apt.systemd.daily update (code=exited, status=0/SUCCESS)
+ Main PID: 1173351 (code=exited, status=0/SUCCESS)
+ CPU: 3.916s
+
+● check-mk-agent-async.service - Checkmk agent - Asynchronous background tasks
+ Loaded: loaded (/lib/systemd/system/check-mk-agent-async.service; enabled; preset: enabled)
+ Active: active (running) since Fri 2025-05-09 04:48:19 CEST; 13h ago
+ Docs: https://docs.checkmk.com/latest/en/agent_linux.html
+ Main PID: 1115820 (check_mk_agent)
+ Tasks: 2 (limit: 76908)
+ Memory: 4.6M
+ CPU: 1min 19.024s
+ CGroup: /system.slice/check-mk-agent-async.service
+ ├─1115820 /bin/bash /usr/bin/check_mk_agent
+ └─1176117 sleep 60
+
+● cmk-agent-ctl-daemon.service - Checkmk agent controller daemon
+ Loaded: loaded (/lib/systemd/system/cmk-agent-ctl-daemon.service; enabled; preset: enabled)
+ Active: active (running) since Fri 2025-05-09 04:48:19 CEST; 13h ago
+ Docs: https://docs.checkmk.com/latest/en/agent_linux.html
+ Main PID: 1115954 (cmk-agent-ctl)
+ Tasks: 4 (limit: 76908)
+ Memory: 2.2M
+ CPU: 1.106s
+ CGroup: /system.slice/cmk-agent-ctl-daemon.service
+ └─1115954 /usr/bin/cmk-agent-ctl daemon
+
+○ cmk-update-agent.service - Checkmk agent updater
+ Loaded: loaded (/lib/systemd/system/cmk-update-agent.service; static)
+ Active: inactive (dead) since Fri 2025-05-09 18:07:08 CEST; 18ms ago
+ Duration: 981ms
+TriggeredBy: ● cmk-update-agent.timer
+ Process: 1176447 ExecStart=/usr/bin/cmk-update-agent install (code=exited, status=0/SUCCESS)
+ Main PID: 1176447 (code=exited, status=0/SUCCESS)
+ CPU: 426ms
+
+● console-getty.service - Console Getty
+ Loaded: loaded (/lib/systemd/system/console-getty.service; enabled-runtime; preset: disabled)
+ Active: active (running) since Mon 2025-04-28 13:29:07 CEST; 1 week 4 days ago
+ Docs: man:agetty(8)
+ man:systemd-getty-generator(8)
+ Main PID: 191 (agetty)
+ Tasks: 1 (limit: 76908)
+ Memory: 236.0K
+ CPU: 3ms
+ CGroup: /system.slice/console-getty.service
+ └─191 /sbin/agetty -o "-p -- \\u" --noclear --keep-baud - 115200,38400,9600 linux
+
+● container-getty@1.service - Container Getty on /dev/tty1
+ Loaded: loaded (/lib/systemd/system/container-getty@.service; enabled; preset: enabled)
+ Active: active (running) since Mon 2025-04-28 13:29:07 CEST; 1 week 4 days ago
+ Docs: man:agetty(8)
+ man:systemd-getty-generator(8)
+ man:machinectl(1)
+ Main PID: 193 (agetty)
+ Tasks: 1 (limit: 76908)
+ Memory: 224.0K
+ CPU: 3ms
+ CGroup: /system.slice/system-container\x2dgetty.slice/container-getty@1.service
+ └─193 /sbin/agetty -o "-p -- \\u" --noclear - linux
+
+● container-getty@2.service - Container Getty on /dev/tty2
+ Loaded: loaded (/lib/systemd/system/container-getty@.service; enabled; preset: enabled)
+ Active: active (running) since Mon 2025-04-28 13:29:07 CEST; 1 week 4 days ago
+ Docs: man:agetty(8)
+ man:systemd-getty-generator(8)
+ man:machinectl(1)
+ Main PID: 194 (agetty)
+ Tasks: 1 (limit: 76908)
+ Memory: 260.0K
+ CPU: 3ms
+ CGroup: /system.slice/system-container\x2dgetty.slice/container-getty@2.service
+ └─194 /sbin/agetty -o "-p -- \\u" --noclear - linux
+
+● containerd.service - containerd container runtime
+ Loaded: loaded (/lib/systemd/system/containerd.service; enabled; preset: enabled)
+ Active: active (running) since Mon 2025-04-28 13:29:09 CEST; 1 week 4 days ago
+ Docs: https://containerd.io
+ Main PID: 186 (containerd)
+ Tasks: 6
+ Memory: 11.3M
+ CPU: 51.461s
+ CGroup: /system.slice/containerd.service
+ └─186 /usr/bin/containerd
+
+● cron.service - Regular background program processing daemon
+ Loaded: loaded (/lib/systemd/system/cron.service; enabled; preset: enabled)
+ Active: active (running) since Mon 2025-04-28 13:29:08 CEST; 1 week 4 days ago
+ Docs: man:cron(8)
+ Main PID: 226 (cron)
+ Tasks: 1 (limit: 76908)
+ Memory: 6.7M
+ CPU: 10.568s
+ CGroup: /system.slice/cron.service
+ └─226 /usr/sbin/cron -f
+
+● dbus.service - D-Bus System Message Bus
+ Loaded: loaded (/lib/systemd/system/dbus.service; static)
+ Active: active (running) since Mon 2025-04-28 13:29:07 CEST; 1 week 4 days ago
+TriggeredBy: ● dbus.socket
+ Docs: man:dbus-daemon(1)
+ Main PID: 100 (dbus-daemon)
+ Tasks: 1 (limit: 76908)
+ Memory: 2.0M
+ CPU: 14.150s
+ CGroup: /system.slice/dbus.service
+ └─100 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+
+○ dpkg-db-backup.service - Daily dpkg database backup service
+ Loaded: loaded (/lib/systemd/system/dpkg-db-backup.service; static)
+ Active: inactive (dead) since Fri 2025-05-09 00:00:01 CEST; 18h ago
+TriggeredBy: ● dpkg-db-backup.timer
+ Docs: man:dpkg(1)
+ Main PID: 1095303 (code=exited, status=0/SUCCESS)
+ CPU: 149ms
+
+○ e2scrub_all.service - Online ext4 Metadata Check for All Filesystems
+ Loaded: loaded (/lib/systemd/system/e2scrub_all.service; static)
+ Active: inactive (dead) since Sun 2025-05-04 03:11:17 CEST; 5 days ago
+TriggeredBy: ● e2scrub_all.timer
+ Docs: man:e2scrub_all(8)
+ Main PID: 585279 (code=exited, status=0/SUCCESS)
+ CPU: 1ms
+
+○ e2scrub_reap.service - Remove Stale Online ext4 Metadata Check Snapshots
+ Loaded: loaded (/lib/systemd/system/e2scrub_reap.service; enabled; preset: enabled)
+ Active: inactive (dead) since Mon 2025-04-28 13:29:07 CEST; 1 week 4 days ago
+ Docs: man:e2scrub_all(8)
+ Main PID: 101 (code=exited, status=0/SUCCESS)
+ CPU: 27ms
+
+○ emergency.service - Emergency Shell
+ Loaded: loaded (/lib/systemd/system/emergency.service; static)
+ Active: inactive (dead)
+ Docs: man:sulogin(8)
+
+○ getty-static.service - getty on tty2-tty6 if dbus and logind are not available
+ Loaded: loaded (/lib/systemd/system/getty-static.service; static)
+ Active: inactive (dead)
+ Condition: start condition failed at Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+
+● ifupdown-pre.service - Helper to synchronize boot up for ifupdown
+ Loaded: loaded (/lib/systemd/system/ifupdown-pre.service; static)
+ Active: active (exited) since Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Main PID: 51 (code=exited, status=0/SUCCESS)
+ CPU: 10ms
+
+○ initrd-cleanup.service - Cleaning Up and Shutting Down Daemons
+ Loaded: loaded (/lib/systemd/system/initrd-cleanup.service; static)
+ Active: inactive (dead)
+
+○ initrd-parse-etc.service - Mountpoints Configured in the Real Root
+ Loaded: loaded (/lib/systemd/system/initrd-parse-etc.service; static)
+ Active: inactive (dead)
+
+○ initrd-switch-root.service - Switch Root
+ Loaded: loaded (/lib/systemd/system/initrd-switch-root.service; static)
+ Active: inactive (dead)
+
+○ initrd-udevadm-cleanup-db.service - Cleanup udev Database
+ Loaded: loaded (/lib/systemd/system/initrd-udevadm-cleanup-db.service; static)
+ Active: inactive (dead)
+
+○ kmod-static-nodes.service - Create List of Static Device Nodes
+ Loaded: loaded (/lib/systemd/system/kmod-static-nodes.service; static)
+ Active: inactive (dead)
+ Condition: start condition failed at Mon 2025-04-28 13:29:05 CEST; 1 week 4 days ago
+
+○ logrotate.service - Rotate log files
+ Loaded: loaded (/lib/systemd/system/logrotate.service; static)
+ Active: inactive (dead) since Fri 2025-05-09 00:00:01 CEST; 18h ago
+TriggeredBy: ● logrotate.timer
+ Docs: man:logrotate(8)
+ man:logrotate.conf(5)
+ Main PID: 1095306 (code=exited, status=0/SUCCESS)
+ CPU: 79ms
+
+○ man-db.service - Daily man-db regeneration
+ Loaded: loaded (/lib/systemd/system/man-db.service; static)
+ Active: inactive (dead) since Fri 2025-05-09 02:31:18 CEST; 15h ago
+TriggeredBy: ● man-db.timer
+ Docs: man:mandb(8)
+ Main PID: 1106150 (code=exited, status=0/SUCCESS)
+ CPU: 214ms
+
+○ modprobe@configfs.service - Load Kernel Module configfs
+ Loaded: loaded (/lib/systemd/system/modprobe@.service; static)
+ Active: inactive (dead) since Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Docs: man:modprobe(8)
+ Main PID: 42 (code=exited, status=1/FAILURE)
+ CPU: 5ms
+
+○ modprobe@dm_mod.service - Load Kernel Module dm_mod
+ Loaded: loaded (/lib/systemd/system/modprobe@.service; static)
+ Active: inactive (dead) since Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Docs: man:modprobe(8)
+ Main PID: 43 (code=exited, status=1/FAILURE)
+ CPU: 4ms
+
+○ modprobe@drm.service - Load Kernel Module drm
+ Loaded: loaded (/lib/systemd/system/modprobe@.service; static)
+ Active: inactive (dead) since Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Docs: man:modprobe(8)
+ Main PID: 44 (code=exited, status=1/FAILURE)
+ CPU: 4ms
+
+○ modprobe@efi_pstore.service - Load Kernel Module efi_pstore
+ Loaded: loaded (/lib/systemd/system/modprobe@.service; static)
+ Active: inactive (dead) since Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Docs: man:modprobe(8)
+ Main PID: 45 (code=exited, status=1/FAILURE)
+ CPU: 4ms
+
+○ modprobe@fuse.service - Load Kernel Module fuse
+ Loaded: loaded (/lib/systemd/system/modprobe@.service; static)
+ Active: inactive (dead) since Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Docs: man:modprobe(8)
+ Main PID: 46 (code=exited, status=1/FAILURE)
+ CPU: 4ms
+
+○ modprobe@loop.service - Load Kernel Module loop
+ Loaded: loaded (/lib/systemd/system/modprobe@.service; static)
+ Active: inactive (dead) since Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Docs: man:modprobe(8)
+ Main PID: 47 (code=exited, status=1/FAILURE)
+ CPU: 4ms
+
+● networking.service - Raise network interfaces
+ Loaded: loaded (/lib/systemd/system/networking.service; enabled; preset: enabled)
+ Active: active (exited) since Mon 2025-04-28 13:29:07 CEST; 1 week 4 days ago
+ Docs: man:interfaces(5)
+ Main PID: 168 (code=exited, status=0/SUCCESS)
+ CPU: 133ms
+
+● nscd.service - Name Service Cache Daemon
+ Loaded: loaded (/lib/systemd/system/nscd.service; enabled; preset: enabled)
+ Active: active (running) since Mon 2025-04-28 13:29:07 CEST; 1 week 4 days ago
+ Main PID: 112 (nscd)
+ Tasks: 13 (limit: 76908)
+ Memory: 1.7M
+ CPU: 3.560s
+ CGroup: /system.slice/nscd.service
+ └─112 /usr/sbin/nscd
+
+● nslcd.service - LSB: LDAP connection daemon
+ Loaded: loaded (/etc/init.d/nslcd; generated)
+ Active: active (running) since Mon 2025-04-28 13:29:08 CEST; 1 week 4 days ago
+ Docs: man:systemd-sysv-generator(8)
+ Tasks: 6 (limit: 76908)
+ Memory: 8.7M
+ CPU: 3.531s
+ CGroup: /system.slice/nslcd.service
+ └─218 /usr/sbin/nslcd
+
+● polkit.service - Authorization Manager
+ Loaded: loaded (/lib/systemd/system/polkit.service; static)
+ Active: active (running) since Mon 2025-04-28 14:32:32 CEST; 1 week 4 days ago
+ Docs: man:polkit(8)
+ Main PID: 5425 (polkitd)
+ Tasks: 3 (limit: 76908)
+ Memory: 1.3M
+ CPU: 103ms
+ CGroup: /system.slice/polkit.service
+ └─5425 /usr/lib/polkit-1/polkitd --no-debug
+
+● postfix.service - Postfix Mail Transport Agent
+ Loaded: loaded (/lib/systemd/system/postfix.service; enabled; preset: enabled)
+ Active: active (exited) since Mon 2025-04-28 13:29:14 CEST; 1 week 4 days ago
+ Docs: man:postfix(1)
+ Main PID: 488 (code=exited, status=0/SUCCESS)
+ CPU: 2ms
+
+● postfix@-.service - Postfix Mail Transport Agent (instance -)
+ Loaded: loaded (/lib/systemd/system/postfix@.service; enabled-runtime; preset: enabled)
+ Active: active (running) since Mon 2025-04-28 13:29:14 CEST; 1 week 4 days ago
+ Docs: man:postfix(1)
+ Tasks: 3 (limit: 76908)
+ Memory: 3.0M
+ CPU: 3.982s
+ CGroup: /system.slice/system-postfix.slice/postfix@-.service
+ ├─ 485 /usr/lib/postfix/sbin/master -w
+ ├─ 487 qmgr -l -t fifo -u
+ └─1176004 pickup -l -t fifo -u
+
+● puppet.service - Puppet agent
+ Loaded: loaded (/lib/systemd/system/puppet.service; enabled; preset: enabled)
+ Active: active (running) since Mon 2025-04-28 13:29:07 CEST; 1 week 4 days ago
+ Docs: man:puppet-agent(8)
+ Main PID: 174 (puppet)
+ Tasks: 2 (limit: 76908)
+ Memory: 129.9M
+ CPU: 11min 30.504s
+ CGroup: /system.slice/puppet.service
+ └─174 /opt/puppetlabs/puppet/bin/ruby /opt/puppetlabs/puppet/bin/puppet agent --no-daemonize
+
+○ rc-local.service - /etc/rc.local Compatibility
+ Loaded: loaded (/lib/systemd/system/rc-local.service; static)
+ Drop-In: /usr/lib/systemd/system/rc-local.service.d
+ └─debian.conf
+ Active: inactive (dead)
+ Docs: man:systemd-rc-local-generator(8)
+
+○ rescue.service - Rescue Shell
+ Loaded: loaded (/lib/systemd/system/rescue.service; static)
+ Active: inactive (dead)
+ Docs: man:sulogin(8)
+
+● rsyslog.service - System Logging Service
+ Loaded: loaded (/lib/systemd/system/rsyslog.service; enabled; preset: enabled)
+ Active: active (running) since Mon 2025-04-28 13:29:07 CEST; 1 week 4 days ago
+TriggeredBy: ● syslog.socket
+ Docs: man:rsyslogd(8)
+ man:rsyslog.conf(5)
+ https://www.rsyslog.com/doc/
+ Main PID: 107 (rsyslogd)
+ Tasks: 4 (limit: 76908)
+ Memory: 1.8M
+ CPU: 2.195s
+ CGroup: /system.slice/rsyslog.service
+ └─107 /usr/sbin/rsyslogd -n -iNONE
+
+● ssh.service - OpenBSD Secure Shell server
+ Loaded: loaded (/lib/systemd/system/ssh.service; enabled; preset: enabled)
+ Active: active (running) since Mon 2025-04-28 13:29:08 CEST; 1 week 4 days ago
+ Docs: man:sshd(8)
+ man:sshd_config(5)
+ Main PID: 212 (sshd)
+ Tasks: 1 (limit: 76908)
+ Memory: 7.9M
+ CPU: 523ms
+ CGroup: /system.slice/ssh.service
+ └─212 "sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups"
+
+● sudo-ldap.service - LSB: Provide limited super user privileges to specific users
+ Loaded: loaded (/etc/init.d/sudo-ldap; generated)
+ Active: active (exited) since Mon 2025-04-28 13:29:07 CEST; 1 week 4 days ago
+ Docs: man:systemd-sysv-generator(8)
+ CPU: 13ms
+
+○ systemd-ask-password-console.service - Dispatch Password Requests to Console
+ Loaded: loaded (/lib/systemd/system/systemd-ask-password-console.service; static)
+ Active: inactive (dead)
+TriggeredBy: ● systemd-ask-password-console.path
+ Docs: man:systemd-ask-password-console.service(8)
+
+○ systemd-ask-password-wall.service - Forward Password Requests to Wall
+ Loaded: loaded (/lib/systemd/system/systemd-ask-password-wall.service; static)
+ Active: inactive (dead)
+TriggeredBy: ● systemd-ask-password-wall.path
+ Docs: man:systemd-ask-password-wall.service(8)
+
+○ systemd-binfmt.service - Set Up Additional Binary Formats
+ Loaded: loaded (/lib/systemd/system/systemd-binfmt.service; static)
+ Active: inactive (dead)
+ Condition: start condition failed at Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Docs: man:systemd-binfmt.service(8)
+ man:binfmt.d(5)
+ https://docs.kernel.org/admin-guide/binfmt-misc.html
+ https://www.freedesktop.org/wiki/Software/systemd/APIFileSystems
+
+○ systemd-firstboot.service - First Boot Wizard
+ Loaded: loaded (/lib/systemd/system/systemd-firstboot.service; static)
+ Active: inactive (dead)
+ Condition: start condition failed at Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Docs: man:systemd-firstboot(1)
+
+○ systemd-fsck-root.service - File System Check on Root Device
+ Loaded: loaded (/lib/systemd/system/systemd-fsck-root.service; static)
+ Active: inactive (dead)
+ Docs: man:systemd-fsck-root.service(8)
+
+○ systemd-fsckd.service - File System Check Daemon to report status
+ Loaded: loaded (/lib/systemd/system/systemd-fsckd.service; static)
+ Active: inactive (dead)
+TriggeredBy: ○ systemd-fsckd.socket
+ Docs: man:systemd-fsckd.service(8)
+
+○ systemd-initctl.service - initctl Compatibility Daemon
+ Loaded: loaded (/lib/systemd/system/systemd-initctl.service; static)
+ Active: inactive (dead)
+TriggeredBy: ● systemd-initctl.socket
+ Docs: man:systemd-initctl.service(8)
+
+● systemd-journal-flush.service - Flush Journal to Persistent Storage
+ Loaded: loaded (/lib/systemd/system/systemd-journal-flush.service; static)
+ Active: active (exited) since Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Docs: man:systemd-journald.service(8)
+ man:journald.conf(5)
+ Main PID: 54 (code=exited, status=0/SUCCESS)
+ CPU: 9ms
+
+● systemd-journald.service - Journal Service
+ Loaded: loaded (/lib/systemd/system/systemd-journald.service; static)
+ Active: active (running) since Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+TriggeredBy: ● systemd-journald-dev-log.socket
+ ○ systemd-journald-audit.socket
+ ● systemd-journald.socket
+ Docs: man:systemd-journald.service(8)
+ man:journald.conf(5)
+ Main PID: 48 (systemd-journal)
+ Status: "Processing requests..."
+ Tasks: 1 (limit: 76908)
+ Memory: 22.8M
+ CPU: 8.114s
+ CGroup: /system.slice/systemd-journald.service
+ └─48 /lib/systemd/systemd-journald
+
+● systemd-logind.service - User Login Management
+ Loaded: loaded (/lib/systemd/system/systemd-logind.service; static)
+ Active: active (running) since Mon 2025-04-28 13:29:07 CEST; 1 week 4 days ago
+ Docs: man:sd-login(3)
+ man:systemd-logind.service(8)
+ man:logind.conf(5)
+ man:org.freedesktop.login1(5)
+ Main PID: 111 (systemd-logind)
+ Status: "Processing requests..."
+ Tasks: 1 (limit: 76908)
+ Memory: 1.2M
+ CPU: 5.582s
+ CGroup: /system.slice/systemd-logind.service
+ └─111 /lib/systemd/systemd-logind
+
+○ systemd-machine-id-commit.service - Commit a transient machine-id on disk
+ Loaded: loaded (/lib/systemd/system/systemd-machine-id-commit.service; static)
+ Active: inactive (dead)
+ Condition: start condition failed at Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Docs: man:systemd-machine-id-commit.service(8)
+
+● systemd-modules-load.service - Load Kernel Modules
+ Loaded: loaded (/lib/systemd/system/systemd-modules-load.service; static)
+ Active: active (exited) since Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Docs: man:systemd-modules-load.service(8)
+ man:modules-load.d(5)
+ Main PID: 49 (code=exited, status=0/SUCCESS)
+ CPU: 10ms
+
+○ systemd-networkd.service - Network Configuration
+ Loaded: loaded (/lib/systemd/system/systemd-networkd.service; disabled; preset: disabled)
+ Active: inactive (dead)
+TriggeredBy: ○ systemd-networkd.socket
+ Docs: man:systemd-networkd.service(8)
+ man:org.freedesktop.network1(5)
+
+○ systemd-pcrphase-initrd.service - TPM2 PCR Barrier (initrd)
+ Loaded: loaded (/lib/systemd/system/systemd-pcrphase-initrd.service; static)
+ Active: inactive (dead)
+ Docs: man:systemd-pcrphase-initrd.service(8)
+
+○ systemd-pcrphase-sysinit.service - TPM2 PCR Barrier (Initialization)
+ Loaded: loaded (/lib/systemd/system/systemd-pcrphase-sysinit.service; static)
+ Active: inactive (dead)
+ Condition: start condition failed at Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Docs: man:systemd-pcrphase-sysinit.service(8)
+
+○ systemd-pcrphase.service - TPM2 PCR Barrier (User)
+ Loaded: loaded (/lib/systemd/system/systemd-pcrphase.service; static)
+ Active: inactive (dead)
+ Condition: start condition failed at Mon 2025-04-28 13:29:07 CEST; 1 week 4 days ago
+ Docs: man:systemd-pcrphase.service(8)
+
+○ systemd-pstore.service - Platform Persistent Storage Archival
+ Loaded: loaded (/lib/systemd/system/systemd-pstore.service; enabled; preset: enabled)
+ Active: inactive (dead)
+ Condition: start condition failed at Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Docs: man:systemd-pstore(8)
+
+○ systemd-random-seed.service - Load/Save Random Seed
+ Loaded: loaded (/lib/systemd/system/systemd-random-seed.service; static)
+ Active: inactive (dead)
+ Condition: start condition failed at Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Docs: man:systemd-random-seed.service(8)
+ man:random(4)
+
+● systemd-remount-fs.service - Remount Root and Kernel File Systems
+ Loaded: loaded (/lib/systemd/system/systemd-remount-fs.service; enabled-runtime; preset: enabled)
+ Active: active (exited) since Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Docs: man:systemd-remount-fs.service(8)
+ https://www.freedesktop.org/wiki/Software/systemd/APIFileSystems
+ Main PID: 50 (code=exited, status=0/SUCCESS)
+ CPU: 9ms
+
+○ systemd-repart.service - Repartition Root Disk
+ Loaded: loaded (/lib/systemd/system/systemd-repart.service; static)
+ Active: inactive (dead)
+ Condition: start condition failed at Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Docs: man:systemd-repart.service(8)
+
+● systemd-sysctl.service - Apply Kernel Variables
+ Loaded: loaded (/lib/systemd/system/systemd-sysctl.service; static)
+ Active: active (exited) since Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Docs: man:systemd-sysctl.service(8)
+ man:sysctl.d(5)
+ Main PID: 56 (code=exited, status=0/SUCCESS)
+ CPU: 12ms
+
+○ systemd-sysext.service - Merge System Extension Images into /usr/ and /opt/
+ Loaded: loaded (/lib/systemd/system/systemd-sysext.service; disabled; preset: enabled)
+ Active: inactive (dead)
+ Docs: man:systemd-sysext.service(8)
+
+● systemd-sysusers.service - Create System Users
+ Loaded: loaded (/lib/systemd/system/systemd-sysusers.service; static)
+ Active: active (exited) since Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Docs: man:sysusers.d(5)
+ man:systemd-sysusers.service(8)
+ Main PID: 55 (code=exited, status=0/SUCCESS)
+ CPU: 18ms
+
+○ systemd-timesyncd.service - Network Time Synchronization
+ Loaded: loaded (/lib/systemd/system/systemd-timesyncd.service; enabled; preset: enabled)
+ Active: inactive (dead)
+ Condition: start condition failed at Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Docs: man:systemd-timesyncd.service(8)
+
+○ systemd-tmpfiles-clean.service - Cleanup of Temporary Directories
+ Loaded: loaded (/lib/systemd/system/systemd-tmpfiles-clean.service; static)
+ Active: inactive (dead) since Fri 2025-05-09 13:47:17 CEST; 4h 19min ago
+TriggeredBy: ● systemd-tmpfiles-clean.timer
+ Docs: man:tmpfiles.d(5)
+ man:systemd-tmpfiles(8)
+ Process: 1155016 ExecStart=systemd-tmpfiles --clean (code=exited, status=0/SUCCESS)
+ Main PID: 1155016 (code=exited, status=0/SUCCESS)
+ CPU: 19ms
+
+● systemd-tmpfiles-setup-dev.service - Create Static Device Nodes in /dev
+ Loaded: loaded (/lib/systemd/system/systemd-tmpfiles-setup-dev.service; static)
+ Active: active (exited) since Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Docs: man:tmpfiles.d(5)
+ man:systemd-tmpfiles(8)
+ Main PID: 60 (code=exited, status=0/SUCCESS)
+ CPU: 16ms
+
+● systemd-tmpfiles-setup.service - Create System Files and Directories
+ Loaded: loaded (/lib/systemd/system/systemd-tmpfiles-setup.service; static)
+ Active: active (exited) since Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Docs: man:tmpfiles.d(5)
+ man:systemd-tmpfiles(8)
+ Main PID: 65 (code=exited, status=0/SUCCESS)
+ CPU: 25ms
+
+○ systemd-udev-settle.service - Wait for udev To Complete Device Initialization
+ Loaded: loaded (/lib/systemd/system/systemd-udev-settle.service; static)
+ Active: inactive (dead)
+ Docs: man:systemd-udev-settle.service(8)
+
+○ systemd-udev-trigger.service - Coldplug All udev Devices
+ Loaded: loaded (/lib/systemd/system/systemd-udev-trigger.service; static)
+ Active: inactive (dead)
+ Condition: start condition failed at Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Docs: man:udev(7)
+ man:systemd-udevd.service(8)
+
+○ systemd-udevd.service - Rule-based Manager for Device Events and Files
+ Loaded: loaded (/lib/systemd/system/systemd-udevd.service; static)
+ Active: inactive (dead)
+TriggeredBy: ○ systemd-udevd-control.socket
+ ○ systemd-udevd-kernel.socket
+ Condition: start condition failed at Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Docs: man:systemd-udevd.service(8)
+ man:udev(7)
+
+○ systemd-update-utmp-runlevel.service - Record Runlevel Change in UTMP
+ Loaded: loaded (/lib/systemd/system/systemd-update-utmp-runlevel.service; static)
+ Active: inactive (dead) since Mon 2025-04-28 13:29:14 CEST; 1 week 4 days ago
+ Docs: man:systemd-update-utmp-runlevel.service(8)
+ man:utmp(5)
+ Main PID: 489 (code=exited, status=0/SUCCESS)
+ CPU: 10ms
+
+● systemd-update-utmp.service - Record System Boot/Shutdown in UTMP
+ Loaded: loaded (/lib/systemd/system/systemd-update-utmp.service; static)
+ Active: active (exited) since Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Docs: man:systemd-update-utmp.service(8)
+ man:utmp(5)
+ Main PID: 82 (code=exited, status=0/SUCCESS)
+ CPU: 10ms
+
+● systemd-user-sessions.service - Permit User Sessions
+ Loaded: loaded (/lib/systemd/system/systemd-user-sessions.service; static)
+ Active: active (exited) since Mon 2025-04-28 13:29:07 CEST; 1 week 4 days ago
+ Docs: man:systemd-user-sessions.service(8)
+ Main PID: 177 (code=exited, status=0/SUCCESS)
+ CPU: 9ms
+
+● unattended-upgrades.service - Unattended Upgrades Shutdown
+ Loaded: loaded (/lib/systemd/system/unattended-upgrades.service; enabled; preset: enabled)
+ Active: active (running) since Mon 2025-04-28 13:29:07 CEST; 1 week 4 days ago
+ Docs: man:unattended-upgrade(8)
+ Main PID: 181 (unattended-upgr)
+ Tasks: 2 (limit: 76908)
+ Memory: 10.0M
+ CPU: 175ms
+ CGroup: /system.slice/unattended-upgrades.service
+ └─181 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+
+● user-runtime-dir@1026.service - User Runtime Directory /run/user/1026
+ Loaded: loaded (/lib/systemd/system/user-runtime-dir@.service; static)
+ Active: active (exited) since Fri 2025-05-09 18:06:43 CEST; 25s ago
+ Docs: man:user@.service(5)
+ Process: 1176311 ExecStart=/lib/systemd/systemd-user-runtime-dir start 1026 (code=exited, status=0/SUCCESS)
+ Main PID: 1176311 (code=exited, status=0/SUCCESS)
+ CPU: 4ms
+
+● user@1026.service - User Manager for UID 1026
+ Loaded: loaded (/lib/systemd/system/user@.service; static)
+ Drop-In: /usr/lib/systemd/system/user@.service.d
+ └─10-login-barrier.conf
+ Active: active (running) since Fri 2025-05-09 18:06:43 CEST; 25s ago
+ Docs: man:user@.service(5)
+ Main PID: 1176312 (systemd)
+ Status: "Ready."
+ Tasks: 2
+ Memory: 3.6M
+ CPU: 43ms
+ CGroup: /user.slice/user-1026.slice/user@1026.service
+ └─init.scope
+ ├─1176312 /lib/systemd/systemd --user
+ └─1176313 "(sd-pam)"
+
+● vnstat.service - vnStat network traffic monitor
+ Loaded: loaded (/lib/systemd/system/vnstat.service; enabled; preset: enabled)
+ Active: active (running) since Mon 2025-04-28 13:29:07 CEST; 1 week 4 days ago
+ Docs: man:vnstatd(8)
+ man:vnstat(1)
+ man:vnstat.conf(5)
+ Main PID: 185 (vnstatd)
+ Tasks: 1 (limit: 76908)
+ Memory: 2.2M
+ CPU: 19.619s
+ CGroup: /system.slice/vnstat.service
+ └─185 /usr/sbin/vnstatd -n
+
+● check-mk-agent.socket - Local Checkmk agent socket
+ Loaded: loaded (/lib/systemd/system/check-mk-agent.socket; enabled; preset: enabled)
+ Active: active (listening) since Fri 2025-05-09 04:48:19 CEST; 13h ago
+ Docs: https://docs.checkmk.com/latest/en/agent_linux.html
+ Listen: /run/check-mk-agent.socket (Stream)
+ Accepted: 165; Connected: 0;
+ Tasks: 0 (limit: 76908)
+ Memory: 0B
+ CPU: 446us
+ CGroup: /system.slice/check-mk-agent.socket
+
+● dbus.socket - D-Bus System Message Bus Socket
+ Loaded: loaded (/lib/systemd/system/dbus.socket; static)
+ Active: active (running) since Mon 2025-04-28 13:29:06 CEST; 1 week 4 days ago
+ Triggers: ● dbus.service
+ Listen: /run/dbus/system_bus_socket (Stream)
+ CGroup: /system.slice/dbus.socket
+
+● syslog.socket - Syslog Socket
+ Loaded: loaded (/lib/systemd/system/syslog.socket; static)
+ Active: active (running) since Mon 2025-04-28 13:29:05 CEST; 1 week 4 days ago
+ Triggers: ● rsyslog.service
+ Docs: man:systemd.special(7)
+ https://www.freedesktop.org/wiki/Software/systemd/syslog
+ Listen: /run/systemd/journal/syslog (Datagram)
+ CGroup: /system.slice/syslog.socket
+
+○ systemd-fsckd.socket - fsck to fsckd communication Socket
+ Loaded: loaded (/lib/systemd/system/systemd-fsckd.socket; static)
+ Active: inactive (dead)
+ Triggers: ● systemd-fsckd.service
+ Docs: man:systemd-fsckd.service(8)
+ man:systemd-fsck@.service(8)
+ man:systemd-fsck-root.service(8)
+ Listen: /run/systemd/fsck.progress (Stream)
+
+● systemd-initctl.socket - initctl Compatibility Named Pipe
+ Loaded: loaded (/lib/systemd/system/systemd-initctl.socket; static)
+ Active: active (listening) since Mon 2025-04-28 13:29:05 CEST; 1 week 4 days ago
+ Triggers: ● systemd-initctl.service
+ Docs: man:systemd-initctl.socket(8)
+ Listen: /run/initctl (FIFO)
+ CGroup: /system.slice/systemd-initctl.socket
+
+○ systemd-journald-audit.socket - Journal Audit Socket
+ Loaded: loaded (/lib/systemd/system/systemd-journald-audit.socket; static)
+ Active: inactive (dead)
+ Triggers: ● systemd-journald.service
+ Condition: start condition failed at Mon 2025-04-28 13:29:05 CEST; 1 week 4 days ago
+ Docs: man:systemd-journald.service(8)
+ man:journald.conf(5)
+ Listen: audit 1 (Netlink)
+
+● systemd-journald-dev-log.socket - Journal Socket (/dev/log)
+ Loaded: loaded (/lib/systemd/system/systemd-journald-dev-log.socket; static)
+ Active: active (running) since Mon 2025-04-28 13:29:05 CEST; 1 week 4 days ago
+ Triggers: ● systemd-journald.service
+ Docs: man:systemd-journald.service(8)
+ man:journald.conf(5)
+ Listen: /run/systemd/journal/dev-log (Datagram)
+ CGroup: /system.slice/systemd-journald-dev-log.socket
+
+● systemd-journald.socket - Journal Socket
+ Loaded: loaded (/lib/systemd/system/systemd-journald.socket; static)
+ Active: active (running) since Mon 2025-04-28 13:29:05 CEST; 1 week 4 days ago
+ Triggers: ● systemd-journald.service
+ Docs: man:systemd-journald.service(8)
+ man:journald.conf(5)
+ Listen: /run/systemd/journal/socket (Datagram)
+ /run/systemd/journal/stdout (Stream)
+ CGroup: /system.slice/systemd-journald.socket
+
+○ systemd-networkd.socket - Network Service Netlink Socket
+ Loaded: loaded (/lib/systemd/system/systemd-networkd.socket; disabled; preset: enabled)
+ Active: inactive (dead)
+ Triggers: ● systemd-networkd.service
+ Docs: man:systemd-networkd.service(8)
+ man:rtnetlink(7)
+ Listen: route 1361 (Netlink)
+
+○ systemd-udevd-control.socket - udev Control Socket
+ Loaded: loaded (/lib/systemd/system/systemd-udevd-control.socket; static)
+ Active: inactive (dead)
+ Triggers: ● systemd-udevd.service
+ Condition: start condition failed at Mon 2025-04-28 13:29:05 CEST; 1 week 4 days ago
+ Docs: man:systemd-udevd-control.socket(8)
+ man:udev(7)
+ Listen: /run/udev/control (SequentialPacket)
+
+○ systemd-udevd-kernel.socket - udev Kernel Socket
+ Loaded: loaded (/lib/systemd/system/systemd-udevd-kernel.socket; static)
+ Active: inactive (dead)
+ Triggers: ● systemd-udevd.service
+ Condition: start condition failed at Mon 2025-04-28 13:29:05 CEST; 1 week 4 days ago
+ Docs: man:systemd-udevd-kernel.socket(8)
+ man:udev(7)
+ Listen: kobject-uevent 1 (Netlink)
+[all]
+am-utils.service not-found inactive dead am-utils.service
+apache2.service loaded active running The Apache HTTP Server
+apparmor.service loaded inactive dead Load AppArmor profiles
+apt-daily-upgrade.service loaded inactive dead Daily apt upgrade and clean activities
+apt-daily.service loaded inactive dead Daily apt download activities
+atd.service not-found inactive dead atd.service
+auditd.service not-found inactive dead auditd.service
+autofs.service not-found inactive dead autofs.service
+check-mk-agent-async.service loaded active running Checkmk agent - Asynchronous background tasks
+citadel.service not-found inactive dead citadel.service
+cmk-agent-ctl-daemon.service loaded active running Checkmk agent controller daemon
+cmk-update-agent.service loaded inactive dead Checkmk agent updater
+connman.service not-found inactive dead connman.service
+console-getty.service loaded active running Console Getty
+container-getty@1.service loaded active running Container Getty on /dev/tty1
+container-getty@2.service loaded active running Container Getty on /dev/tty2
+containerd.service loaded active running containerd container runtime
+courier-ldap.service not-found inactive dead courier-ldap.service
+courier-mta-ssl.service not-found inactive dead courier-mta-ssl.service
+courier-mta.service not-found inactive dead courier-mta.service
+courier-pop-ssl.service not-found inactive dead courier-pop-ssl.service
+courier-pop.service not-found inactive dead courier-pop.service
+cron.service loaded active running Regular background program processing daemon
+cyrus-imapd.service not-found inactive dead cyrus-imapd.service
+dbus.service loaded active running D-Bus System Message Bus
+display-manager.service not-found inactive dead display-manager.service
+dovecot.service not-found inactive dead dovecot.service
+dpkg-db-backup.service loaded inactive dead Daily dpkg database backup service
+e2scrub_all.service loaded inactive dead Online ext4 Metadata Check for All Filesystems
+e2scrub_reap.service loaded inactive dead Remove Stale Online ext4 Metadata Check Snapshots
+emergency.service loaded inactive dead Emergency Shell
+exim4.service not-found inactive dead exim4.service
+gdm3.service not-found inactive dead gdm3.service
+getty-static.service loaded inactive dead getty on tty2-tty6 if dbus and logind are not available
+heimdal-kcm.service not-found inactive dead heimdal-kcm.service
+heimdal-kdc.service not-found inactive dead heimdal-kdc.service
+ifupdown-pre.service loaded active exited Helper to synchronize boot up for ifupdown
+initrd-cleanup.service loaded inactive dead Cleaning Up and Shutting Down Daemons
+initrd-parse-etc.service loaded inactive dead Mountpoints Configured in the Real Root
+initrd-switch-root.service loaded inactive dead Switch Root
+initrd-udevadm-cleanup-db.service loaded inactive dead Cleanup udev Database
+kdm.service not-found inactive dead kdm.service
+kmod-static-nodes.service loaded inactive dead Create List of Static Device Nodes
+kolab-cyrus-common.service not-found inactive dead kolab-cyrus-common.service
+krb5-kdc.service not-found inactive dead krb5-kdc.service
+logrotate.service loaded inactive dead Rotate log files
+mail-transport-agent.service not-found inactive dead mail-transport-agent.service
+man-db.service loaded inactive dead Daily man-db regeneration
+masqmail.service not-found inactive dead masqmail.service
+modprobe@configfs.service loaded inactive dead Load Kernel Module configfs
+modprobe@dm_mod.service loaded inactive dead Load Kernel Module dm_mod
+modprobe@drm.service loaded inactive dead Load Kernel Module drm
+modprobe@efi_pstore.service loaded inactive dead Load Kernel Module efi_pstore
+modprobe@fuse.service loaded inactive dead Load Kernel Module fuse
+modprobe@loop.service loaded inactive dead Load Kernel Module loop
+networking.service loaded active exited Raise network interfaces
+NetworkManager.service not-found inactive dead NetworkManager.service
+nscd.service loaded active running Name Service Cache Daemon
+nslcd.service loaded active running LSB: LDAP connection daemon
+nullmailer.service not-found inactive dead nullmailer.service
+plymouth-quit-wait.service not-found inactive dead plymouth-quit-wait.service
+plymouth-start.service not-found inactive dead plymouth-start.service
+polkit.service loaded active running Authorization Manager
+postfix.service loaded active exited Postfix Mail Transport Agent
+postfix@-.service loaded active running Postfix Mail Transport Agent (instance -)
+puppet.service loaded active running Puppet agent
+rc-local.service loaded inactive dead /etc/rc.local Compatibility
+rescue.service loaded inactive dead Rescue Shell
+rmnologin.service not-found inactive dead rmnologin.service
+rsyslog.service loaded active running System Logging Service
+sendmail.service not-found inactive dead sendmail.service
+shishi-kdc.service not-found inactive dead shishi-kdc.service
+slapd.service not-found inactive dead slapd.service
+slim.service not-found inactive dead slim.service
+ssh.service loaded active running OpenBSD Secure Shell server
+sudo-ldap.service loaded active exited LSB: Provide limited super user privileges to specific users
+systemd-ask-password-console.service loaded inactive dead Dispatch Password Requests to Console
+systemd-ask-password-wall.service loaded inactive dead Forward Password Requests to Wall
+systemd-binfmt.service loaded inactive dead Set Up Additional Binary Formats
+systemd-firstboot.service loaded inactive dead First Boot Wizard
+systemd-fsck-root.service loaded inactive dead File System Check on Root Device
+systemd-fsckd.service loaded inactive dead File System Check Daemon to report status
+systemd-hwdb-update.service not-found inactive dead systemd-hwdb-update.service
+systemd-initctl.service loaded inactive dead initctl Compatibility Daemon
+systemd-journal-flush.service loaded active exited Flush Journal to Persistent Storage
+systemd-journald.service loaded active running Journal Service
+systemd-logind.service loaded active running User Login Management
+systemd-machine-id-commit.service loaded inactive dead Commit a transient machine-id on disk
+systemd-modules-load.service loaded active exited Load Kernel Modules
+systemd-networkd.service loaded inactive dead Network Configuration
+systemd-oomd.service not-found inactive dead systemd-oomd.service
+systemd-pcrphase-initrd.service loaded inactive dead TPM2 PCR Barrier (initrd)
+systemd-pcrphase-sysinit.service loaded inactive dead TPM2 PCR Barrier (Initialization)
+systemd-pcrphase.service loaded inactive dead TPM2 PCR Barrier (User)
+systemd-pstore.service loaded inactive dead Platform Persistent Storage Archival
+systemd-random-seed.service loaded inactive dead Load/Save Random Seed
+systemd-remount-fs.service loaded active exited Remount Root and Kernel File Systems
+systemd-repart.service loaded inactive dead Repartition Root Disk
+systemd-sysctl.service loaded active exited Apply Kernel Variables
+systemd-sysext.service loaded inactive dead Merge System Extension Images into /usr/ and /opt/
+systemd-sysusers.service loaded active exited Create System Users
+systemd-timesyncd.service loaded inactive dead Network Time Synchronization
+systemd-tmpfiles-clean.service loaded inactive dead Cleanup of Temporary Directories
+systemd-tmpfiles-setup-dev.service loaded active exited Create Static Device Nodes in /dev
+systemd-tmpfiles-setup.service loaded active exited Create System Files and Directories
+systemd-udev-settle.service loaded inactive dead Wait for udev To Complete Device Initialization
+systemd-udev-trigger.service loaded inactive dead Coldplug All udev Devices
+systemd-udevd.service loaded inactive dead Rule-based Manager for Device Events and Files
+systemd-update-done.service not-found inactive dead systemd-update-done.service
+systemd-update-utmp-runlevel.service loaded inactive dead Record Runlevel Change in UTMP
+systemd-update-utmp.service loaded active exited Record System Boot/Shutdown in UTMP
+systemd-user-sessions.service loaded active exited Permit User Sessions
+systemd-vconsole-setup.service not-found inactive dead systemd-vconsole-setup.service
+unattended-upgrades.service loaded active running Unattended Upgrades Shutdown
+user-runtime-dir@1026.service loaded active exited User Runtime Directory /run/user/1026
+user@1026.service loaded active running User Manager for UID 1026
+vnstat.service loaded active running vnStat network traffic monitor
+wdm.service not-found inactive dead wdm.service
+xdm.service not-found inactive dead xdm.service
+check-mk-agent.socket loaded active listening Local Checkmk agent socket
+dbus.socket loaded active running D-Bus System Message Bus Socket
+syslog.socket loaded active running Syslog Socket
+systemd-fsckd.socket loaded inactive dead fsck to fsckd communication Socket
+systemd-initctl.socket loaded active listening initctl Compatibility Named Pipe
+systemd-journald-audit.socket loaded inactive dead Journal Audit Socket
+systemd-journald-dev-log.socket loaded active running Journal Socket (/dev/log)
+systemd-journald.socket loaded active running Journal Socket
+systemd-networkd.socket loaded inactive dead Network Service Netlink Socket
+systemd-udevd-control.socket loaded inactive dead udev Control Socket
+systemd-udevd-kernel.socket loaded inactive dead udev Kernel Socket
+<<<nfsmounts_v2:sep(0)>>>
+<<<cifsmounts>>>
+<<<mounts>>>
+/dev/mapper/pve-vm--144--disk--0 / ext4 rw,relatime,stripe=16 0 0
+<<<ps_lnx>>>
+[time]
+1746806828
+[processes]
+[header] CGROUP USER VSZ RSS TIME ELAPSED PID COMMAND
+0::/init.scope root 168136 11264 00:24:48 11-04:36:10 1 /sbin/init
+0::/system.slice/systemd-journald.service root 65860 10748 00:00:08 11-04:36:03 48 /lib/systemd/systemd-journald
+0::/system.slice/dbus.service messagebus 9436 5120 00:00:14 11-04:36:02 100 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+0::/system.slice/rsyslog.service root 222488 4352 00:00:02 11-04:36:02 107 /usr/sbin/rsyslogd -n -iNONE
+0::/system.slice/systemd-logind.service root 17404 7424 00:00:05 11-04:36:02 111 /lib/systemd/systemd-logind
+0::/system.slice/nscd.service root 721216 3456 00:00:03 11-04:36:02 112 /usr/sbin/nscd
+0::/system.slice/puppet.service root 234600 74432 00:00:31 11-04:36:02 174 /opt/puppetlabs/puppet/bin/ruby /opt/puppetlabs/puppet/bin/puppet agent --no-daemonize
+0::/system.slice/unattended-upgrades.service root 111300 13812 00:00:00 11-04:36:02 181 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+0::/system.slice/vnstat.service vnstat 5076 3712 00:00:19 11-04:36:02 185 /usr/sbin/vnstatd -n
+0::/system.slice/containerd.service root 1654348 12764 00:00:51 11-04:36:02 186 /usr/bin/containerd
+0::/system.slice/console-getty.service root 5880 2176 00:00:00 11-04:36:02 191 /sbin/agetty -o -p -- \u --noclear --keep-baud - 115200,38400,9600 linux
+0::/system.slice/system-container\x2dgetty.slice/container-getty@1.service root 5880 2176 00:00:00 11-04:36:01 193 /sbin/agetty -o -p -- \u --noclear - linux
+0::/system.slice/system-container\x2dgetty.slice/container-getty@2.service root 5880 2176 00:00:00 11-04:36:01 194 /sbin/agetty -o -p -- \u --noclear - linux
+0::/system.slice/ssh.service root 15864 9344 00:00:00 11-04:36:01 212 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+0::/system.slice/nslcd.service nslcd 387584 9148 00:00:03 11-04:36:01 218 /usr/sbin/nslcd
+0::/system.slice/cron.service root 7176 2432 00:00:01 11-04:36:01 226 /usr/sbin/cron -f
+0::/system.slice/apache2.service root 21988 8400 00:00:22 11-04:35:59 273 /usr/sbin/apache2 -k start
+0::/system.slice/system-postfix.slice/postfix@-.service root 43092 2324 00:00:01 11-04:35:55 485 /usr/lib/postfix/sbin/master -w
+0::/system.slice/system-postfix.slice/postfix@-.service postfix 43148 5248 00:00:00 11-04:35:55 487 qmgr -l -t fifo -u
+0::/system.slice/polkit.service polkitd 234820 7424 00:00:00 11-03:32:37 5425 /usr/lib/polkit-1/polkitd --no-debug
+0::/system.slice/apache2.service www-data 21988 4092 00:00:00 18:05:08 1095397 /usr/sbin/apache2 -k start
+0::/system.slice/apache2.service www-data 976444 11772 00:00:00 18:05:08 1095398 /usr/sbin/apache2 -k start
+0::/system.slice/apache2.service www-data 976444 11772 00:00:00 18:05:08 1095399 /usr/sbin/apache2 -k start
+0::/system.slice/check-mk-agent-async.service root 8848 4608 00:00:02 13:16:50 1115820 /bin/bash /usr/bin/check_mk_agent
+0::/system.slice/cmk-agent-ctl-daemon.service cmk-agent 18384 6012 00:00:01 13:16:50 1115954 /usr/bin/cmk-agent-ctl daemon
+0::/system.slice/system-postfix.slice/postfix@-.service postfix 43104 5376 00:00:00 01:53 1176004 pickup -l -t fifo -u
+0::/system.slice/check-mk-agent-async.service root 6236 1664 00:00:00 441077234-00:17:36 1176117 sleep 60
+0::/user.slice/user-1026.slice/session-65975.scope root 18496 10880 00:00:00 441077234-00:17:04 1176297 sshd: mkronika [priv]
+0::/user.slice/user-1026.slice/user@1026.service/init.scope mkronika 18880 10368 00:00:00 441077234-00:17:04 1176312 /lib/systemd/systemd --user
+0::/user.slice/user-1026.slice/user@1026.service/init.scope mkronika 169736 4568 00:00:00 441077234-00:17:04 1176313 (sd-pam)
+0::/user.slice/user-1026.slice/session-65975.scope mkronika 18756 6548 00:00:00 441077234-00:17:04 1176388 sshd: mkronika@pts/3
+0::/user.slice/user-1026.slice/session-65975.scope mkronika 8928 5248 00:00:00 441077234-00:17:04 1176389 -bash
+0::/user.slice/user-1026.slice/session-65975.scope root 28944 14704 00:00:00 441077234-00:16:32 1176445 sudo check_mk_agent
+0::/user.slice/user-1026.slice/session-65975.scope root 28944 6612 00:00:00 441077234-00:16:32 1176446 sudo check_mk_agent
+0::/user.slice/user-1026.slice/session-65975.scope root 8852 4480 00:00:00 441077234-00:16:32 1176448 /bin/bash /usr/bin/check_mk_agent
+0::/user.slice/user-1026.slice/session-65975.scope root 8852 3204 00:00:00 441077234-00:16:32 1176469 /bin/bash /usr/bin/check_mk_agent
+0::/user.slice/user-1026.slice/session-65975.scope root 8852 2820 00:00:00 441077234-00:16:32 1176470 /bin/bash /usr/bin/check_mk_agent
+0::/user.slice/user-1026.slice/session-65975.scope root 6376 1536 00:00:00 441077234-00:16:32 1176472 cat
+0::/user.slice/user-1026.slice/session-65975.scope root 8852 2620 00:00:00 441077234-00:16:32 1176520 /bin/bash /usr/bin/check_mk_agent
+0::/user.slice/user-1026.slice/session-65975.scope root 12076 4352 00:00:00 441077234-00:16:32 1176521 ps ax -ww -o cgroup:512,user:32,vsz,rss,cputime,etime,pid,command
+0::/user.slice/user-1026.slice/session-65975.scope root 6260 1536 00:00:00 441077234-00:16:32 1176522 tr -s 
+<<<mem>>>
+MemTotal:        1048576 kB
+MemFree:          203444 kB
+MemAvailable:     488440 kB
+Buffers:               0 kB
+Cached:           285104 kB
+SwapCached:            0 kB
+Active:           147740 kB
+Inactive:         262884 kB
+Active(anon):      59884 kB
+Inactive(anon):    65744 kB
+Active(file):      87856 kB
+Inactive(file):   197140 kB
+Unevictable:           0 kB
+Mlocked:           33380 kB
+SwapTotal:        524288 kB
+SwapFree:         495512 kB
+Zswap:                 0 kB
+Zswapped:              0 kB
+Dirty:                 0 kB
+Writeback:             0 kB
+AnonPages:        125512 kB
+Mapped:                0 kB
+Shmem:               116 kB
+KReclaimable:    2832216 kB
+Slab:                  0 kB
+SReclaimable:          0 kB
+SUnreclaim:            0 kB
+KernelStack:       56528 kB
+PageTables:       185308 kB
+SecPageTables:      9164 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    41236976 kB
+Percpu:            63936 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+Unaccepted:            0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:      420076 kB
+DirectMap2M:    31932416 kB
+DirectMap1G:    35651584 kB
+<<<lxc_container_cpu_cgroupv2>>>
+uptime 967089.28 967089.28
+num_cpus 1
+usage_usec 10344541743
+user_usec 7208555668
+system_usec 3135986074
+core_sched.force_idle_usec 0
+nr_periods 0
+nr_throttled 0
+throttled_usec 0
+nr_bursts 0
+burst_usec 0
+<<<uptime>>>
+967089.28 967089.28
+<<<lnx_if>>>
+[start_iplink]
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute 
+       valid_lft forever preferred_lft forever
+2: eth0@if74: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether d2:62:7c:0d:2d:64 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet 192.168.0.44/24 brd 192.168.0.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::d062:7cff:fe0d:2d64/64 scope link 
+       valid_lft forever preferred_lft forever
+[end_iplink]
+<<<lnx_if:sep(58)>>>
+    lo:    2160      30    0    0    0     0          0         0     2160      30    0    0    0     0       0          0
+  eth0: 15474415426 254504183    0    0    0     0          0         0 88567511  470312    0    0    0     0       0          0
+[lo]
+	Link detected: yes
+Address: 00:00:00:00:00:00
+[eth0]
+	Speed: 10000Mb/s
+	Duplex: Full
+	Auto-negotiation: off
+	Link detected: yes
+Address: d2:62:7c:0d:2d:64
+<<<lnx_bonding:sep(58)>>>
+<<<tcp_conn_stats>>>
+06 1
+0A 5
+01 7
+<<<diskstat>>>
+1746806828
+ 259       0 nvme0n1 211075399 4095745 13635191961 44798936 196677102 146212799 15320485575 227422938 0 23513363 280074291 13885 0 20845048 3901 22953718 7848515
+ 252       0 dm-0 2109229 0 16882808 208057 3158181 0 25478024 7563256 0 423072 7771313 0 0 0 0 0 0
+ 252       1 dm-1 70749 0 6065546 11711 9218833 0 105141736 1519576 0 6103019 1535174 13884 0 19799208 3887 0 0
+ 252       2 dm-2 1053294 0 8426376 226314 11120191 0 77604056 1293331 0 730434 1519645 0 0 0 0 0 0
+ 252       3 dm-3 211381037 0 13462116965 45470868 319345932 0 15112017773 383297804 0 104431138 428768672 0 0 0 0 0 0
+ 252       4 dm-4 211381037 0 13462116965 45589435 318636090 0 15112017773 383026336 0 48994338 428615771 0 0 0 0 0 0
+ 252       5 dm-5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 252       6 dm-6 138165 0 6167514 32804 9842772 0 870418696 19770556 0 5923373 19803360 0 0 0 0 0 0
+ 252       7 dm-7 114509 0 6036970 30109 9794699 0 824214240 36771653 0 4395828 36801762 0 0 0 0 0 0
+ 252       8 dm-8 56728 0 3264570 10844 6505133 0 506213352 15736799 0 3514893 15747643 0 0 0 0 0 0
+ 252       9 dm-9 1122584 0 39899930 203333 11327853 0 1025815152 23573748 0 4118502 23777081 0 0 0 0 0 0
+ 252      10 dm-10 37306612 0 1723266906 6884427 43601989 0 2225320757 32659524 0 15891182 39543951 0 0 0 0 0 0
+ 252      11 dm-11 209878 0 8614956 43927 10323100 0 565255744 20693658 0 7710377 20737585 0 0 0 0 0 0
+ 252      12 dm-12 280466 0 11520866 81002 12067615 0 938194376 43483022 0 1879341 43564024 0 0 0 0 0 0
+ 252      13 dm-13 533721 0 8335274 78420 8764119 0 747243472 34387180 0 3784945 34465600 0 0 0 0 0 0
+ 252      14 dm-14 391897 0 20726882 93845 119429413 0 1794900840 47299615 0 35905414 47393460 0 0 0 0 0 0
+ 252      15 dm-15 117067 0 6336778 30947 9344051 0 826527384 21071460 0 6135826 21102407 0 0 0 0 0 0
+ 252      16 dm-16 11098219 0 896699202 2244414 9650094 0 845315088 39686778 0 3632102 41931192 0 0 0 0 0 0
+ 252      17 dm-17 197999 0 10490338 45701 9932836 0 857395096 18594376 0 4528576 18640077 0 0 0 0 0 0
+ 252      18 dm-18 180625 0 8119396 40317 10271331 0 859273912 28886806 0 20619123 28927123 0 0 0 0 0 0
+ 252      19 dm-19 81174 0 3621578 19824 10321328 0 954587248 23141352 0 2622362 23161176 0 0 0 0 0 0
+ 252      20 dm-20 99812 0 6515698 24071 2774548 0 28968432 1661757 0 7068234 1685828 0 0 0 0 0 0
+ 252      21 dm-21 75215600 0 5445898860 29487780 5869260 0 300466720 6808310 0 14786628 36296090 0 0 0 0 0 0
+ 252      22 dm-22 5740410 0 309293924 1665342 12884762 0 137738752 7854607 0 4965028 9519949 0 0 0 0 0 0
+ 252      23 dm-23 138341 0 7985484 26300 5993748 0 446168632 24290880 0 5101952 24317180 0 0 0 0 0 0
+ 252      25 dm-25 9176426 0 1160594963 10107263 4757472 0 93239704 1410587 0 4653752 11517850 0 0 0 0 0 0
+ 252      26 dm-26 93884 0 5379388 16178 3368505 0 38915128 4381298 0 9532163 4397476 129 0 16777224 0 0 0
+[dmsetup_info]
+<<<md>>>
+Personalities : 
+unused devices: <none>
+<<<vbox_guest>>>
+<<<postfix_mailq>>>
+[[[default]]]
+QUEUE_deferred 12 0
+QUEUE_active 4 0
+<<<postfix_mailq_status:sep(58)>>>
+default:the Postfix mail system is running:PID:485
+<<<job>>>
+<<<local:sep(0)>>>
+<<<logwatch>>>
+[[[/var/log/kern.log:missing]]]
+[[[/var/log/apache/*.log:missing]]]
+[[[/var/log/httpd/*.log:missing]]]
+[[[/var/log/bind/*.log:missing]]]
+[[[/var/log/auth.log]]]
+BATCH: 1746806828-092180243192091158122061216166105009056020049069
+[[[/var/log/messages]]]
+BATCH: 1746806828-092180243192091158122061216166105009056020049069
+[[[/var/log/syslog]]]
+BATCH: 1746806828-092180243192091158122061216166105009056020049069
+<<<puppet_agent>>>
+last_run: 1746805365
+resources_resources:
+resources_changed: 0
+resources_corrective_change: 0
+resources_failed: 3
+resources_failed_to_restart: 0
+resources_out_of_sync: 3
+resources_restarted: 0
+resources_scheduled: 0
+resources_skipped: 40
+events_events:
+events_failure: 3
+events_success: 0
+events_total: 3
+<<<labels:sep(0)>>>
+{"puppet": "true"}
+<<<cmk_update_agent_status:sep(0):cached(1746794939,18000)>>>
+{"last_check": 1746794939.9110568, "last_update": 1746758899.920962, "aghash": "f2d7820d601151da", "pending_hash": null, "update_url": "https://cmk.blacknight.at/main/check_mk", "trusted_certs": {"0": {"corrupt": false, "not_after": "2049-09-22T13:59:23+00:00", "signature_algorithm": "sha1", "common_name": "mkronika"}}, "error": null}
+<<<apt:sep(0):cached(1746806537,900)>>>
+No updates pending for installation
