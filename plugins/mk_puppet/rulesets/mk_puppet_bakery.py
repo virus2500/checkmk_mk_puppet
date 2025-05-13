@@ -17,7 +17,7 @@
 # #
 # # This is free software;  you can redistribute it and/or modify it
 # # under the  terms of the  GNU General Public License  as published by
-# # the Free Software Foundation in version 2.  mk_puppet Plugin is  distributed
+# # the Free Software Foundation in version 2.  mk_puppet Plugin is distributed
 # # in the hope that it will be useful, but WITHOUT ANY WARRANTY;  with-
 # # out even the implied warranty of  MERCHANTABILITY  or  FITNESS FOR A
 # # PARTICULAR PURPOSE. See the  GNU General Public License for more de-
@@ -26,6 +26,51 @@
 # # to the Free Software Foundation, Inc., 51 Franklin St,  Fifth Floor,
 # # Boston, MA 02110-1301 USA.
 
+from cmk.rulesets.v1 import Title
+from cmk.rulesets.v1.form_specs import (
+    Dictionary,
+    DictElement,
+    SingleChoice,
+    SingleChoiceElement,
+    DefaultValue,
+)
+from cmk.rulesets.v1.rule_specs import AgentConfig, Topic, Help
+
+
+def _parameter_form_bakery():
+    return Dictionary(
+        title=Title("Puppet Agent Plugin Settings"),
+        help_text=Help(
+            "Hosts configured via this rule get the <tt>mk_puppet</tt> plugin"
+        ),
+        elements={
+            "deploy": DictElement(
+                required=True,
+                parameter_form=SingleChoice(
+                    prefill=DefaultValue("yes"),
+                    elements=[
+                        SingleChoiceElement(
+                            name="yes",
+                            title=Title("Deploy the puppet agent plugin"),
+                        ),
+                        SingleChoiceElement(
+                            name="no",
+                            title=Title("Do not deploy puppet agent plugin"),
+                        ),
+                    ],
+                ),
+            ),
+        },
+    )
+
+
+rule_spec_hello_world_bakery = AgentConfig(
+    name="puppet_agent_plugin",
+    title=Title("Puppet agent plugin!"),
+    topic=Topic.APPLICATIONS,
+    parameter_form=_parameter_form_bakery,
+)
+
 # from cmk.gui.i18n import _
 
 # from cmk.gui.plugins.wato import (
@@ -33,7 +78,8 @@
 #     rulespec_registry,
 # )
 
-# from cmk.gui.cee.plugins.wato.agent_bakery.rulespecs.utils import RulespecGroupMonitoringAgentsAgentPlugins
+# from cmk.gui.cee.plugins.wato.agent_bakery.rulespecs.utils
+# import RulespecGroupMonitoringAgentsAgentPlugins
 
 # from cmk.gui.valuespec import (
 #     DropdownChoice,
@@ -43,7 +89,8 @@
 # def _valuespec_agent_config_mk_puppet():
 #     return DropdownChoice(
 #         title=_("Puppet Execution State (Linux)"),
-#         help=_("Hosts configured via this rule get the <tt>mk_puppet</tt> plugin "
+#         help=_("Hosts configured via this rule get
+# the <tt>mk_puppet</tt> plugin "
 #                "deployed."),
 #         choices=[
 #             (True, _("Deploy puppet plugin")),

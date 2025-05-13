@@ -28,24 +28,26 @@
 #
 
 # TODO: Rewrite needed
-from pathlib import Path
-from typing import Any, Dict
-
-from .bakery_api.v1 import FileGenerator, OS, Plugin, register
 
 
-def get_mk_puppet_files(conf: Dict[str, Any]) -> FileGenerator:
-    yield Plugin(
-        base_os=OS.LINUX,
-        source=Path("mk_puppet"),
-    )
-    yield Plugin(
-        base_os=OS.WINDOWS,
-        source=Path("mk_puppet.ps1"),
-    )
+# from pathlib import Path
+# from typing import Any, Dict
 
-register.bakery_plugin(
-    name="mk_puppet",
-    files_function=get_mk_puppet_files,
-)
+# from .bakery_api.v1 import FileGenerator, OS, Plugin, register
+
+
+# def get_mk_puppet_files(conf: Dict[str, Any]) -> FileGenerator:
+#     yield Plugin(
+#         base_os=OS.LINUX,
+#         source=Path("mk_puppet"),
+#     )
+#     yield Plugin(
+#         base_os=OS.WINDOWS,
+#         source=Path("mk_puppet.ps1"),
+#     )
+
+# register.bakery_plugin(
+#     name="mk_puppet",
+#     files_function=get_mk_puppet_files,
+# )
 
