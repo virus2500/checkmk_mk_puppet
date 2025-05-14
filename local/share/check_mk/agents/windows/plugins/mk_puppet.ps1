@@ -1,4 +1,4 @@
-# Writen to conform to the output of the linux plugin from 
+# Writen to conform to the output of the linux plugin from
 # https://github.com/allangood/check_mk/tree/master/plugins/puppet
 # Contribution from: https://github.com/jeff-cook
 
