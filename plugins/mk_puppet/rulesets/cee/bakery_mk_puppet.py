@@ -9,10 +9,17 @@
 #
 
 #
-# mk_puppet Plugin
+# Based on work by
+# Writed by Allan GooD: allan.cassaro@gmail.com
+# https://github.com/allangood/check_mk/tree/master/plugins/puppet
+#
+#
 # (c) 2021 DECOIT GmbH
 # written by Timo Klecker: klecker@decoit.de
 #
+
+# made compatible with Checkmk > 2.3.0p33 and 2.4.x
+# by Michael Kronika
 
 #
 # This is free software;  you can redistribute it and/or modify it
@@ -25,8 +32,9 @@
 # License along with GNU Make; see the file  COPYING.  If  not,  write
 # to the Free Software Foundation, Inc., 51 Franklin St,  Fifth Floor,
 # Boston, MA 02110-1301 USA.
+from collections.abc import Mapping
 
-from cmk.rulesets.v1 import Title, Mapping
+from cmk.rulesets.v1 import Title
 from cmk.rulesets.v1.form_specs import (
     Dictionary,
     DictElement,
@@ -37,26 +45,23 @@ from cmk.rulesets.v1.form_specs import (
 from cmk.rulesets.v1.rule_specs import AgentConfig, Topic, Help
 
 
-def _migrate(value) -> Mapping[str, object]:
+def _migrate(value: object) -> Mapping[str, object]:
     match value:
         case None:
-            return {"deployment": "do_not_deploy"}
+            return {"deploy": "no"}
         case True:
-            return {"deployment": "deploy"}
+            return {"deploy": "yes"}
         case dict():
             return value
         case _:
-            raise ValueError(
-                f"Invalid value for mk_puppet: {value}.\
-                    Expected None, True, or a dict."
-            )
+            raise ValueError(value)
 
 
 def _parameter_form_bakery() -> Dictionary:
     return Dictionary(
         migrate=_migrate,
         elements={
-            "deployment": DictElement(
+            "deploy": DictElement(
                 required=True,
                 parameter_form=SingleChoice(
                     title=Title("Puppet agent plugin deployment"),
@@ -64,14 +69,14 @@ def _parameter_form_bakery() -> Dictionary:
                         "Hosts configured via this rule get \
                         the <tt>mk_puppet</tt> plugin"
                     ),
-                    prefill=DefaultValue("deploy"),
+                    prefill=DefaultValue("yes"),
                     elements=[
                         SingleChoiceElement(
-                            name="deploy",
+                            name="yes",
                             title=Title("Deploy the puppet agent plugin"),
                         ),
                         SingleChoiceElement(
-                            name="do_not_deploy",
+                            name="no",
                             title=Title("Do not deploy puppet agent plugin"),
                         ),
                     ],
@@ -82,7 +87,7 @@ def _parameter_form_bakery() -> Dictionary:
 
 
 rule_spec_hello_world_bakery = AgentConfig(
-    name="puppet_agent_plugin",
+    name="mk_puppet",
     title=Title("Puppet agent plugin"),
     topic=Topic.APPLICATIONS,
     parameter_form=_parameter_form_bakery,
