@@ -1,0 +1,54 @@
+name: build
+
+on:
+  push:
+    branches:
+      - '**'
+    tags:
+      - 'v*.*.*'
+  pull_request:
+
+jobs:
+  build_package:
+    name: Build Checkmk package
+    runs-on: ubuntu-latest
+    container:
+      image: ${{ vars.CHECK_MK_IMAGE }}
+
+    env:
+      OMD_ROOT: /omd/sites/cmk
+      OMD_SITE: cmk
+      CMK_SITE_ID: cmk
+      WORKSPACE: ${{ github.workspace }}
+
+    steps:
+      - name: Initialize Checkmk Site
+        run: /docker-entrypoint.sh /bin/true
+
+      - uses: actions/checkout@v2
+
+      - name: Setup links
+        run: .devcontainer/symlink.sh
+
+      - name: Update GITHUB_PATH
+        run: echo "/omd/sites/cmk/bin" >> $GITHUB_PATH
+
+      - name: Build Extension
+        run: .devcontainer/build.sh
+        id: cmkpkg
+
+      - name: Debug package outputs
+        run: |
+          echo "PKGFILE: ${{ steps.cmkpkg.outputs.pkgfile }}"
+          echo "PKGNAME: ${{ steps.cmkpkg.outputs.pkgname }}"
+          echo "PKGVERSION: ${{ steps.cmkpkg.outputs.pkgversion }}"
+
+      - name: Confirm MKP file exists
+        run: ls -l ${{ steps.cmkpkg.outputs.pkgfile }}
+
+      - name: Upload mkp artifact
+        uses: ${{ github.server_url == 'https://github.com' && 'actions/upload-artifact@v4' || 'actions/upload-artifact@v3' }}
+        with:
+          name: ${{ steps.cmkpkg.outputs.pkgfile }}
+          path: ${{ steps.cmkpkg.outputs.pkgfile }}
+

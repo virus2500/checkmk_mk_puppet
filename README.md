@@ -1,6 +1,9 @@
 # mk_puppet Plugin
 
-This repository contains the 2.0 version by DECOIT based on the mk_puppet plugin by [Alan Good](https://github.com/allangood/check_mk/tree/master/plugins/puppet)
+This repository contains the 3.0 for checkmk 2.3.0p33+ and 2.4.0.
+
+Based on the work of [DECOIT](https://github.com/decoit/check_mk/tree/main/mk_puppet) and 
+the mk_puppet plugin by [Alan Good](https://github.com/allangood/check_mk/tree/master/plugins/puppet)
 
 Checks for puppet:
  - Puppet Agent Events Failure

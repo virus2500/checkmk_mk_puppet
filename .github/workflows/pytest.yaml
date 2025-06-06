@@ -1,0 +1,37 @@
+name: pytest
+
+on:
+  push: []
+
+jobs:
+  pytest:
+
+    runs-on: ubuntu-latest
+    container:
+      image:  ${{ vars.CHECK_MK_IMAGE }}
+
+    env:
+      OMD_ROOT: /omd/sites/cmk
+      OMD_SITE: cmk
+      CMK_SITE_ID: cmk
+      WORKSPACE: ${{ github.workspace }}
+
+    steps:
+    - name: Initialize Checkmk Site
+      run: /docker-entrypoint.sh /bin/true
+    - uses: actions/checkout@v2
+    # - name: Setup links
+    #   run: ./.devcontainer/symlink.sh
+    # - name: Install extra packages (GitHub only)
+    #   if: ${{ github.server_url == 'https://github.com' }}
+    #   run: |
+    #     apt-get update
+    #     apt-get upgrade -y
+    #     apt-get install -y wget curl gnupg lsb-release ca-certificates build-essential nodejs npm flake8
+
+    - name: Install pytest
+      run: su -l -c "REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt pip3 install -r $GITHUB_WORKSPACE/.devcontainer/requirements.txt" cmk
+    - name: Update GITHUB_PATH
+      run: echo "/omd/sites/cmk/bin" >> $GITHUB_PATH
+    - name: Run pytest
+      run: python3 -m pytest
