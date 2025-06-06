@@ -163,14 +163,14 @@ check_plugin_puppet_agent_lastrun = CheckPlugin(
 
 # Has to have uniqe keys and values!
 _resources_name_table: Dict[str, str] = {
-       'resources_changed': _('Resource Changed'),
-       'resources_failed': _('Resource Failed'),
-       'resources_failed_to_restart': _('Resource Failed to Restart'),
-       'resources_out_of_sync': _('Resources Out Of Sync'),
-       'resources_restarted': _('Resources Restarted'),
-       'resources_scheduled': _('Resources Scheduled'),
-       'resources_skipped': _('Resources Skipped'),
-       'resources_total': _('Resources Total'),
+    'resources_changed': _('Resource Changed'),
+    'resources_failed': _('Resource Failed'),
+    'resources_failed_to_restart': _('Resource Failed to Restart'),
+    'resources_out_of_sync': _('Resources Out Of Sync'),
+    'resources_restarted': _('Resources Restarted'),
+    'resources_scheduled': _('Resources Scheduled'),
+    'resources_skipped': _('Resources Skipped'),
+    'resources_total': _('Resources Total'),
 }
 
 

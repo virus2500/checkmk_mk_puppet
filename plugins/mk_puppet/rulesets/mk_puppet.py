@@ -11,10 +11,8 @@
 # (c) 2021 DECOIT GmbH
 # written by Timo Klecker: klecker@decoit.de
 #
-
 # made compatible with Checkmk > 2.3.0p33 and 2.4.x
 # by Michael Kronika
-
 #
 # This is free software;  you can redistribute it and/or modify it
 # under the  terms of the  GNU General Public License  as published by

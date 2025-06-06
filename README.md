@@ -2,7 +2,7 @@
 
 This repository contains the 3.0 for checkmk 2.3.0p33+ and 2.4.0.
 
-Based on the work of [DECOIT](https://github.com/decoit/check_mk/tree/main/mk_puppet) and 
+Based on the work of [DECOIT](https://github.com/decoit/check_mk/tree/main/mk_puppet) and
 the mk_puppet plugin by [Alan Good](https://github.com/allangood/check_mk/tree/master/plugins/puppet)
 
 Checks for puppet:
@@ -18,7 +18,3 @@ Checks for puppet:
  - Puppet Agent Resources Total
 
 It contains the [checkmk](https://checkmk.com/) Enterprise Edition feature for baking agents and wato GUIs for parameter definition.
-
-### Example:
-
-![Puppet](https://github.com/decoit/check_mk/blob/main/site_media/mk_puppet.jpg?raw=true)

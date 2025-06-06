@@ -1,21 +1,15 @@
-{
-    'author': u'',
-    'description': u'',
-    'download_url': '',
-    'files': {
-        'agent_based': [],
-        'agents': [],
-        'checkman': [],
-        'checks': [],
-        'doc': [],
-        'inventory': [],
-        'notifications': [],
-        'pnp-templates': [],
-        'web': []
-    },
-    'name': '',
-    'title': u'',
-    'version': '0.1',
-    'version.min_required': '2.0.0',
-    'version.packaged': '2.0.0'
-}
+{'author': 'Michael Kronika',
+ 'description': 'The mk_puppet extension in Checkmk is a special agent plugin that collects detailed configuration and status information from systems managed by Puppet. It enables visibility into Puppet runs, including the last run time, applied resources, and any failures, to help monitor configuration compliance.',
+ 'download_url': 'https://example.com/mk_puppet/',
+ 'files': {'agents': ['plugins/mk_puppet', 'windows/plugins/mk_puppet.ps1'],
+           'cmk_addons_plugins': ['mk_puppet/agent_based/mk_puppet.py',
+                                  'mk_puppet/rulesets/cee/__init__.py',
+                                  'mk_puppet/rulesets/cee/bakery_mk_puppet.py',
+                                  'mk_puppet/rulesets/mk_puppet.py'],
+           'lib': ['check_mk/base/cee/plugins/bakery/bakery_mk_puppet.py']},
+ 'name': 'mk_puppet',
+ 'title': 'Checks for Puppet Agent',
+ 'version': '3.0.0',
+ 'version.min_required': '2.3.0p33',
+ 'version.packaged': '2.4.0',
+ 'version.usable_until': None}
