@@ -5,7 +5,7 @@
 
 #
 # Based on work by
-# Writed by Allan GooD: allan.cassaro@gmail.com
+# Writen by Allan GooD: allan.cassaro@gmail.com
 # https://github.com/allangood/check_mk/tree/master/plugins/puppet
 #
 #
